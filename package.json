@@ -8,7 +8,7 @@
     "start": "tsc && node build/index.js",
     "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/config/index.ts",
     "lint": "eslint src/**/*.ts",
-    "format": "eslint src/**/*.ts --fix",
+    "format": "eslint src/**/*.ts --fix && prettier --write .",
     "studio": "prisma studio",
     "db:seed": "prisma db seed",
     "db:migrate": "prisma migrate dev --preview-feature",
