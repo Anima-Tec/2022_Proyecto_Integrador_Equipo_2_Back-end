@@ -1,0 +1,30 @@
+### Create donator
+POST http://localhost:4000/api-alidar/donators
+Content-Type: application/json
+
+# Request body (required)
+{
+    "name": "Example",
+    "lastName": "Example",
+    "email": "example@example.com",
+    "password": "aswe123fkd3?1"
+}
+
+### Get donator/:id
+GET http://localhost:4000/api-alidar/donators/cecd37f1-4cd0-44fb-9ff9-828f69933b1c
+
+### Update donator/:id
+PATCH http://localhost:4000/api-alidar/donators/cecd37f1-4cd0-44fb-9ff9-828f69933b1c
+Content-Type: application/json
+
+# Request body (optional)
+{
+    "name": "Pedro",
+    "lastName": "Example",
+    "password": "aswe123fkd3?1",
+    "onboardingStepPosition": 1
+}
+
+### Delete donator/:id
+DELETE http://localhost:4000/api-alidar/donators/cecd37f1-4cd0-44fb-9ff9-828f69933b1c
+
