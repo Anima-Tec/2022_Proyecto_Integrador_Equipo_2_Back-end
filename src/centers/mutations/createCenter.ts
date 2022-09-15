@@ -14,7 +14,7 @@ const createCenterMutation = async (data: UserCenter) => {
       rol: 'CENTER',
       name: data.name,
       email: data.email,
-      hashedPassword: data.email,
+      hashedPassword: data.hashedPassword,
       center: {
         create: {
           phone: data.phone,

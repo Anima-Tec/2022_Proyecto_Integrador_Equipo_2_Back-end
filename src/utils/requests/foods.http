@@ -1,0 +1,32 @@
+### Create Center Food /:centerId/:foodId
+POST http://localhost:4000/api-alidar/centers/ef46593c-91f9-4f1d-9bf6-cb3e77f3fc04/foods
+Content-Type: application/json
+
+# Request body (required)
+{
+    "name": "Example fooddsdsddsadasdsadsad",
+    "category": "Example category",
+    "amount": 12,
+    "unitMeasurement": "KG"
+}
+
+### Get Foods
+GET http://localhost:4000/api-alidar/centers/ef46593c-91f9-4f1d-9bf6-cb3e77f3fc04/foods
+
+### Get Center foods /:centerId/foods/:foodId
+GET http://localhost:4000/api-alidar/centers/ef46593c-91f9-4f1d-9bf6-cb3e77f3fc04/foods/0c1f4595-7726-40f8-ab8d-dae88d8791fa
+
+### Update Center food /:centerId/foods/:foodId
+PATCH http://localhost:4000/api-alidar/centers/ef46593c-91f9-4f1d-9bf6-cb3e77f3fc04/foods/0c1f4595-7726-40f8-ab8d-dae88d8791fa
+Content-Type: application/json
+
+# Request body (optional)
+{
+    "category": "Example category",
+    "amount": 12,
+    "unitMeasurement": "ML"
+}
+
+### Delete Center food /:centerId/foods/:foodId
+DELETE http://localhost:4000/api-alidar/centers/ef46593c-91f9-4f1d-9bf6-cb3e77f3fc04/foods/0c1f4595-7726-40f8-ab8d-dae88d8791fa
+

@@ -51,4 +51,17 @@ model Center {
   description              String? @default("")
   photo                    String? @db.LongText
   user                     User    @relation(fields: [id], references: [id], onDelete: Cascade)
+  foods                    Food[]
+}
+
+model Food {
+  id              String              @default(uuid())
+  centerId        String
+  name            String              @unique
+  category        String
+  amount          Int
+  unitMeasurement UnitMeasurementType
+  center          Center              @relation(fields: [centerId], references: [id], onDelete: Cascade)
+
+  @@id([id, centerId])
 }
