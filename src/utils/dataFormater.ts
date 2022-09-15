@@ -8,7 +8,7 @@ const dataFormater = (data: any) => {
       if (key === 'user') {
         const { id, hashedPassword, ...dataWithoutIdAndPassword }: User = value
         Object.assign(formattedObject, { ...dataWithoutIdAndPassword })
-      } else if (typeof value === 'object') {
+      } else if (typeof value === 'object' && key !== 'photo') {
         const { id, ...dataWithoutId } = value
         Object.assign(formattedObject, { ...dataWithoutId })
       } else {

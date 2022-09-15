@@ -12,6 +12,15 @@ datasource db {
 
 enum UserType {
   DONATOR
+  CENTER
+}
+
+enum UnitMeasurementType {
+  KG
+  BAG
+  G
+  ML
+  L
 }
 
 model User {
@@ -22,10 +31,24 @@ model User {
   rol                    UserType
   onboardingStepPosition Int      @default(1)
   donator                Donator?
+  center                 Center?
 }
 
 model Donator {
   id       String @id @default(uuid())
   lastName String
   user     User   @relation(fields: [id], references: [id], onDelete: Cascade)
+}
+
+model Center {
+  id                       String  @id @default(uuid())
+  phone                    String
+  numberVolunteersRequired Int?    @default(0)
+  street                   String
+  zone                     String
+  numberDoor               String
+  departament              String
+  description              String? @default("")
+  photo                    String? @db.LongText
+  user                     User    @relation(fields: [id], references: [id], onDelete: Cascade)
 }

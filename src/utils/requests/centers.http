@@ -1,0 +1,47 @@
+### Create Center
+POST http://localhost:4000/api-alidar/centers
+Content-Type: application/json
+
+# Request body (required)
+{
+    "name": "example",
+    "email": "example@center.com2",
+    "password": "klsal123rds?",
+    "phone": "092879213",
+    "street": "Example street",
+    "zone": "Example zone",
+    "numberDoor": "4310",
+    "departament": "Example departament",
+    // Optional
+    "description": "Example description" ,
+    "photo": "string_base64"
+}
+
+### Get Centers
+GET http://localhost:4000/api-alidar/centers
+
+### Get Center/:id
+GET http://localhost:4000/api-alidar/centers/9bea4c49-c19c-4a29-bade-1db373ace509
+
+### Update Center/:id
+PATCH http://localhost:4000/api-alidar/centers/9bea4c49-c19c-4a29-bade-1db373ace509
+Content-Type: application/json
+
+# Request body (optional)
+{
+    "name": "example",
+    "password": "klsal123rds?",
+    "phone": "092879213",
+    "street": "Example street",
+    "zone": "Example zone",
+    "numberDoor": "4310",
+    "departament": "Example departament",
+    "description": "Example description",
+    "numberVolunteersRequired": 0,
+    "onboardingStepPosition": 1,
+    "photo": "string_base64"
+}
+
+### Delete Center/:id
+DELETE http://localhost:4000/api-alidar/centers/9bea4c49-c19c-4a29-bade-1db373ace509
+
