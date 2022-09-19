@@ -1,10 +1,11 @@
-import { UserCenter } from '../../interfaces/center.interface'
 import { dataFormater } from '../../utils/dataFormater'
 
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Prisma } from '@prisma/client'
 const db = new PrismaClient()
 
-const createCenterMutation = async (data: UserCenter) => {
+export type CreateCenterInput = Pick<Prisma.UserCreateArgs, 'data'> & Pick<Prisma.CenterCreateArgs, 'data'>
+
+const createCenterMutation = async ({ data }: CreateCenterInput) => {
   const isExist = await db.user.findUnique({ where: { email: data.email } })
 
   if (isExist) throw 'Ya existe un usuario con el mismo email, por favor ingrese otro'

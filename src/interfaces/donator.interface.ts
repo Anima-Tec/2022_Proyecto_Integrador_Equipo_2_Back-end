@@ -1,5 +1,5 @@
 import { User } from './user.interface'
 
-export interface Donator extends User {
+export interface UserDonator extends User {
   lastName: string
 }

@@ -1,10 +1,11 @@
-import { Donator } from '../../interfaces/donator.interface'
 import { dataFormater } from '../../utils/dataFormater'
 
-import { PrismaClient } from '@prisma/client'
+import { Prisma, PrismaClient } from '@prisma/client'
 const db = new PrismaClient()
 
-const createDonatorMutation = async (data: Donator) => {
+export type CreateDonatorInput = Pick<Prisma.UserCreateArgs, 'data'> & Pick<Prisma.DonatorCreateArgs, 'data'>
+
+const createDonatorMutation = async ({ data }: CreateDonatorInput) => {
   const isExist = await db.user.findUnique({ where: { email: data.email } })
 
   if (isExist) throw 'Ya existe un usuario con el mismo email, por favor ingrese otro'

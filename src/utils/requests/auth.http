@@ -1,0 +1,40 @@
+### LOGIN
+POST http://localhost:4000/api-alidar/auth/login
+Content-Type: application/json
+
+# Request body (required)
+{
+    "email": "example@center.com2",
+    "password": "klsal123rds?"
+}
+
+### CENTER SIGNUP
+POST http://localhost:4000/api-alidar/auth/signup/center
+Content-Type: application/json
+
+# Request body (required)
+{
+    "name": "example",
+    "email": "example@center.com2",
+    "password": "klsal123rds?",
+    "phone": "092879213",
+    "street": "Example street",
+    "zone": "Example zone",
+    "numberDoor": "4310",
+    "departament": "Example departament",
+    // Optional
+    "description": "Example description" ,
+    "photo": "string_base64"
+}
+
+### DONATOR SIGNUP
+POST http://localhost:4000/api-alidar/auth/signup/donator
+Content-Type: application/json
+
+# Request body (required)
+{
+    "name": "Example",
+    "lastName": "Example",
+    "email": "example@example.com",
+    "password": "aswe123fkd3?1"
+}

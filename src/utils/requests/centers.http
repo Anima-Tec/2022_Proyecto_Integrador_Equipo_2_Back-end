@@ -1,31 +1,15 @@
-### Create Center
-POST http://localhost:4000/api-alidar/centers
-Content-Type: application/json
-
-# Request body (required)
-{
-    "name": "example",
-    "email": "example@center.com2",
-    "password": "klsal123rds?",
-    "phone": "092879213",
-    "street": "Example street",
-    "zone": "Example zone",
-    "numberDoor": "4310",
-    "departament": "Example departament",
-    // Optional
-    "description": "Example description" ,
-    "photo": "string_base64"
-}
-
 ### Get Centers
 GET http://localhost:4000/api-alidar/centers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YzdlOTRlLTQxZjItNGE3NS1hMGQ1LTE3Yzg3MTk0YTY0YSIsInJvbCI6IkNFTlRFUiIsImlhdCI6MTY2MzM1MDYzNCwiZXhwIjoxNjYzOTU1NDM0fQ.1hczcalkcjb6U-wQr8Peu0MTeHpaKF91EstDGbho8vE
 
 ### Get Center/:id
-GET http://localhost:4000/api-alidar/centers/9bea4c49-c19c-4a29-bade-1db373ace509
+GET http://localhost:4000/api-alidar/centers/249e78c6-ddac-427f-8f17-82d79a9d4777
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YzdlOTRlLTQxZjItNGE3NS1hMGQ1LTE3Yzg3MTk0YTY0YSIsInJvbCI6IkNFTlRFUiIsImlhdCI6MTY2MzM1MDYzNCwiZXhwIjoxNjYzOTU1NDM0fQ.1hczcalkcjb6U-wQr8Peu0MTeHpaKF91EstDGbho8vE
 
 ### Update Center/:id
-PATCH http://localhost:4000/api-alidar/centers/9bea4c49-c19c-4a29-bade-1db373ace509
+PATCH http://localhost:4000/api-alidar/centers/249e78c6-ddac-427f-8f17-82d79a9d4777
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YzdlOTRlLTQxZjItNGE3NS1hMGQ1LTE3Yzg3MTk0YTY0YSIsInJvbCI6IkNFTlRFUiIsImlhdCI6MTY2MzM1MDYzNCwiZXhwIjoxNjYzOTU1NDM0fQ.1hczcalkcjb6U-wQr8Peu0MTeHpaKF91EstDGbho8vE
 
 # Request body (optional)
 {
@@ -43,5 +27,5 @@ Content-Type: application/json
 }
 
 ### Delete Center/:id
-DELETE http://localhost:4000/api-alidar/centers/9bea4c49-c19c-4a29-bade-1db373ace509
-
+DELETE http://localhost:4000/api-alidar/centers/249e78c6-ddac-427f-8f17-82d79a9d4777
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4YzdlOTRlLTQxZjItNGE3NS1hMGQ1LTE3Yzg3MTk0YTY0YSIsInJvbCI6IkNFTlRFUiIsImlhdCI6MTY2MzM1MDYzNCwiZXhwIjoxNjYzOTU1NDM0fQ.1hczcalkcjb6U-wQr8Peu0MTeHpaKF91EstDGbho8vE
