@@ -10,6 +10,7 @@ export interface AuthLogin {
 
 export interface UserToToken {
   id: string
+  rol: string
 }
 
 export interface GetUserAuthInfoRequest extends Request {

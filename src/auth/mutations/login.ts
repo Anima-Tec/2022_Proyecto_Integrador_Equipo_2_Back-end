@@ -23,6 +23,7 @@ const loginMutation = async ({ data }: AuthLogin) => {
 
   const userToToken: UserToToken = {
     id: user.id,
+    rol: user.rol,
   }
 
   const accessToken = await generateToken(userToToken)
