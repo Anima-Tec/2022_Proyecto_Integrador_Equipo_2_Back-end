@@ -1,14 +1,13 @@
 import express from 'express'
 import { DonatorController } from '../controllers/donators.controller'
+import { protectRoutesByRol } from '../middlewares/protectRoutesByRol'
 
 const DonatorsRouter = express.Router()
 
-DonatorsRouter.post('/donators', DonatorController.createDonator)
+DonatorsRouter.get('/donators/:id', protectRoutesByRol('DONATOR'), DonatorController.getDonator)
 
-DonatorsRouter.get('/donators/:id', DonatorController.getDonator)
+DonatorsRouter.patch('/donators/:id', protectRoutesByRol('DONATOR'), DonatorController.updateDonator)
 
-DonatorsRouter.patch('/donators/:id', DonatorController.updateDonator)
-
-DonatorsRouter.delete('/donators/:id', DonatorController.deleteDonator)
+DonatorsRouter.delete('/donators/:id', protectRoutesByRol('DONATOR'), DonatorController.deleteDonator)
 
 export { DonatorsRouter }

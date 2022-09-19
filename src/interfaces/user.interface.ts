@@ -1,7 +1,4 @@
-export enum UserType {
-  DONATOR = 'DONATOR',
-  CENTER = 'CENTER',
-}
+export type UserType = 'DONATOR' | 'CENTER'
 
 export interface User {
   name: string

@@ -2,17 +2,6 @@ import { Request, Response } from 'express'
 import { DonatorService } from '../services/donators.services'
 
 class DonatorController {
-  static async createDonator(req: Request, res: Response) {
-    try {
-      const donator = await DonatorService.createDonator(req.body)
-
-      console.log(donator)
-      res.status(201).send(donator)
-    } catch (error: any) {
-      console.error(error)
-      res.status(500).send({ message: error })
-    }
-  }
   static async getDonator(req: Request, res: Response) {
     try {
       const donator = await DonatorService.getDonator({
@@ -28,10 +17,11 @@ class DonatorController {
 
       res.status(404).send({ message: 'Donador no encontrado' })
     } catch (error) {
-      console.log(error)
+      console.log({ error })
       res.status(500).send({ message: error })
     }
   }
+
   static async updateDonator(req: Request, res: Response) {
     try {
       const donator = await DonatorService.updateDonator({
@@ -41,11 +31,12 @@ class DonatorController {
 
       console.log(donator)
       res.status(200).end()
-    } catch (error: any) {
-      console.log(error)
+    } catch (error) {
+      console.log({ error })
       res.status(500).send({ message: error })
     }
   }
+
   static async deleteDonator(req: Request, res: Response) {
     try {
       const donator = await DonatorService.deleteDonator({
@@ -61,7 +52,7 @@ class DonatorController {
 
       res.status(404).send({ error: 'Donador no encontrado' })
     } catch (error) {
-      console.log(error)
+      console.log({ error })
       res.status(500).send({ message: error })
     }
   }

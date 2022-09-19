@@ -13,9 +13,9 @@ class FoodController {
 
       console.log(food)
       res.status(201).send(food)
-    } catch (err) {
-      console.log(err)
-      res.status(500).send({ message: err })
+    } catch (error) {
+      console.log({ error })
+      res.status(500).send({ message: error })
     }
   }
 
@@ -44,9 +44,9 @@ class FoodController {
       }
 
       res.status(404).send({ message: 'Alimento no encontrado' })
-    } catch (err) {
-      console.log(err)
-      res.status(500).send({ message: err })
+    } catch (error) {
+      console.log({ error })
+      res.status(500).send({ message: error })
     }
   }
 
@@ -64,9 +64,9 @@ class FoodController {
       }
 
       res.status(404).send({ message: 'Alimentos no encontrados' })
-    } catch (err) {
-      console.log(err)
-      res.status(500).send({ message: err })
+    } catch (error) {
+      console.log({ error })
+      res.status(500).send({ message: error })
     }
   }
 
@@ -84,9 +84,9 @@ class FoodController {
 
       console.log(food)
       res.status(200).send(food)
-    } catch (err) {
-      console.log(err)
-      res.status(500).send({ message: err })
+    } catch (error) {
+      console.log({ error })
+      res.status(500).send({ message: error })
     }
   }
 
@@ -103,9 +103,9 @@ class FoodController {
 
       console.log(food)
       res.status(200).send(food)
-    } catch (err) {
-      console.log(err)
-      res.status(500).send({ message: err })
+    } catch (error) {
+      console.log({ error })
+      res.status(500).send({ message: error })
     }
   }
 }

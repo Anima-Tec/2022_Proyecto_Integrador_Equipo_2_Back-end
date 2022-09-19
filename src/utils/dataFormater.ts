@@ -10,6 +10,7 @@ const dataFormater = (data: any) => {
     Object.entries(data).forEach(([key, value]: any) => {
       if (key === 'user') {
         const { id, hashedPassword, ...dataWithoutIdAndPassword }: User = value
+        // delete value.id, value.hashedPassword
         Object.assign(formattedObject, { ...dataWithoutIdAndPassword })
       } else if (key === 'foods' && value.length) {
         const foods = value.map(({ centerId, ...dataWithoutCenterId }: Food) => dataWithoutCenterId)

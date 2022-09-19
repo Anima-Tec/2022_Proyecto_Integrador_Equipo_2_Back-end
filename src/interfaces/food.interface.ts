@@ -1,13 +1,4 @@
-// import { Center } from "./center.interface";
-
-export enum UnitMeasurementType {
-  KG = 'KG',
-  BAG = 'BAG',
-  G = 'G',
-  ML = 'ML',
-  L = 'L',
-}
-
+export type UnitMeasurementType = 'KG' | 'BAG' | 'G' | 'M' | 'L'
 export interface Food {
   name: string
   category: string
