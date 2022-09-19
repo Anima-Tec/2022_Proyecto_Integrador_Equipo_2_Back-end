@@ -15,7 +15,8 @@
     "db:setup": "prisma migrate reset --force"
   },
   "prisma": {
-    "schema": "db/schema.prisma"
+    "schema": "db/schema.prisma",
+    "seed": "ts-node db/seed.ts"
   },
   "keywords": [],
   "author": "",
