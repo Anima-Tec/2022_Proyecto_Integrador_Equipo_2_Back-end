@@ -6,8 +6,8 @@ const protectRoutesByRol = (rolType: UserType) => async (req: Request, res: Resp
   const { user } = await (req as GetUserAuthInfoRequest)
 
   if (
-    user?.rol.toLowerCase() !== rolType.toLowerCase() &&
-    (user?.id !== req.params.id || user?.id !== req.params.centerId)
+    (user?.rol.toLowerCase() !== rolType.toLowerCase() && user?.id !== req.params.id) ||
+    user?.id !== req.params.centerId
   ) {
     return res.status(401).send({ error: 'Unauthorized' })
   }
