@@ -41,27 +41,33 @@ model Donator {
 }
 
 model Center {
-  id                       String  @id @default(uuid())
+  id                       String      @id @default(uuid())
   phone                    String
-  numberVolunteersRequired Int?    @default(0)
+  numberVolunteersRequired Int?        @default(0)
   street                   String
   zone                     String
   numberDoor               String
   departament              String
-  description              String? @default("")
-  photo                    String? @db.LongText
-  user                     User    @relation(fields: [id], references: [id], onDelete: Cascade)
-  foods                    Food[]
+  description              String?     @default("")
+  photo                    String?     @db.LongText
+  user                     User        @relation(fields: [id], references: [id])
+  foods                    NeedsFood[]
 }
 
 model Food {
-  id              String              @default(uuid())
+  id        String      @id @default(uuid())
+  name      String
+  category  String
+  needsFood NeedsFood[]
+}
+
+model NeedsFood {
+  foodId          String
   centerId        String
-  name            String              @unique
-  category        String
   amount          Int
   unitMeasurement UnitMeasurementType
-  center          Center              @relation(fields: [centerId], references: [id], onDelete: Cascade)
+  food            Food                @relation(fields: [foodId], references: [id])
+  center          Center              @relation(fields: [centerId], references: [id])
 
-  @@id([id, centerId])
+  @@id([foodId, centerId])
 }

@@ -15,7 +15,9 @@ const updateCenterMutation = async ({ data, where }: UpadteUserInput & UpadteCen
     where,
     data: {
       name: data.name,
+      email: data.email,
       hashedPassword: data.hashedPassword,
+      onboardingStepPosition: data.onboardingStepPosition,
       center: {
         update: {
           phone: data.phone,

@@ -10,7 +10,15 @@ const getCenterQuery = async ({ where }: GetCenterInput) => {
     where,
     include: {
       user: true,
+      foods: {
+        select: {
+          food: true,
+          amount: true,
+          unitMeasurement: true,
+        },
+      },
     },
+    // include: { user: true, foods: { include: { food: true } } },
   })
 
   return dataFormater(center)

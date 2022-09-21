@@ -1,4 +1,5 @@
-export type UnitMeasurementType = 'KG' | 'BAG' | 'G' | 'M' | 'L'
+export type UnitMeasurementType = 'KG' | 'BAG' | 'G' | 'ML' | 'L'
+
 export interface Food {
   name: string
   category: string

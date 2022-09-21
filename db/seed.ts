@@ -1,6 +1,7 @@
 import { hashPassword } from '../src/utils/hashPassword'
 import { donators, centers } from './data'
 import { PrismaClient } from '@prisma/client'
+import { UnitMeasurementType } from '../src/interfaces/food.interface'
 
 const db = new PrismaClient()
 
@@ -25,7 +26,7 @@ async function seed() {
   }
 
   for (const center of centers) {
-    await db.user.create({
+    const centerCreated = await db.user.create({
       data: {
         rol: 'CENTER',
         name: center.name,
@@ -39,7 +40,7 @@ async function seed() {
             zone: center.zone,
             numberDoor: center.numberDoor,
             departament: center.departament,
-            description: center.description ?? undefined,
+            description: center.description ?? null,
             photo: null,
           },
         },
@@ -48,6 +49,31 @@ async function seed() {
         center: true,
       },
     })
+
+    if (center.foods?.length) {
+      center.foods.forEach(async ({ name, category, amount, unitMeasurement }) => {
+        await db.center.update({
+          where: { id: centerCreated.id },
+          data: {
+            foods: {
+              create: {
+                amount,
+                unitMeasurement: unitMeasurement as UnitMeasurementType,
+                food: {
+                  create: {
+                    name,
+                    category,
+                  },
+                },
+              },
+            },
+          },
+          include: {
+            foods: true,
+          },
+        })
+      })
+    }
   }
 }
 

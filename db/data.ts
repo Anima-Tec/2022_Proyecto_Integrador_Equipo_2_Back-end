@@ -43,6 +43,26 @@ const centers = [
     zone: 'Centro',
     departament: 'Montevideo',
     numberVolunteersRequired: 10,
+    foods: [
+      {
+        amount: Math.floor(Math.random() * 100),
+        unitMeasurement: 'KG',
+        name: 'Arroz',
+        category: 'No perecederos',
+      },
+      {
+        amount: Math.floor(Math.random() * 100),
+        unitMeasurement: 'KG',
+        name: 'Fideo',
+        category: 'No perecederos',
+      },
+      {
+        amount: Math.floor(Math.random() * 100),
+        unitMeasurement: 'KG',
+        name: 'Pulpa de tomate',
+        category: 'No perecederos',
+      },
+    ],
   },
   {
     name: 'ANIMA',
@@ -56,6 +76,20 @@ const centers = [
     zone: 'Centro',
     departament: 'Montevideo',
     numberVolunteersRequired: 12,
+    foods: [
+      {
+        amount: Math.floor(Math.random() * 100),
+        unitMeasurement: 'KG',
+        name: 'Arroz',
+        category: 'No perecederos',
+      },
+      {
+        amount: Math.floor(Math.random() * 100),
+        unitMeasurement: 'KG',
+        name: 'Pulpa de tomate',
+        category: 'No perecederos',
+      },
+    ],
   },
   {
     name: 'Manos juntas',
@@ -68,6 +102,14 @@ const centers = [
     zone: 'Cordon',
     departament: 'Montevideo',
     numberVolunteersRequired: 5,
+    foods: [
+      {
+        amount: Math.floor(Math.random() * 100),
+        unitMeasurement: 'KG',
+        name: 'Polenta',
+        category: 'No perecederos',
+      },
+    ],
   },
   {
     name: 'Flores',
@@ -89,6 +131,14 @@ const centers = [
     numberDoor: '3121232',
     zone: 'Casavalle',
     departament: 'Montevideo',
+    foods: [
+      {
+        amount: Math.floor(Math.random() * 100),
+        unitMeasurement: 'KG',
+        name: 'Harina',
+        category: 'No perecederos',
+      },
+    ],
   },
 ]
 
