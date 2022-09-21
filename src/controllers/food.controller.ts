@@ -23,18 +23,10 @@ class FoodController {
     try {
       const food = await FoodService.getFood({
         where: {
-          id_centerId: {
-            id: req.params.foodId,
+          foodId_centerId: {
+            foodId: req.params.foodId,
             centerId: req.params.centerId,
           },
-          // AND: [
-          //   {
-          //     id: req.params.foodId,
-          //   },
-          //   {
-          //     centerId: req.params.centerId,
-          //   },
-          // ],
         },
       })
 
@@ -74,8 +66,8 @@ class FoodController {
     try {
       const food = await FoodService.updateFood({
         where: {
-          id_centerId: {
-            id: req.params.foodId,
+          foodId_centerId: {
+            foodId: req.params.foodId,
             centerId: req.params.centerId,
           },
         },
@@ -94,8 +86,8 @@ class FoodController {
     try {
       const food = await FoodService.deleteFood({
         where: {
-          id_centerId: {
-            id: req.params.foodId,
+          foodId_centerId: {
+            foodId: req.params.foodId,
             centerId: req.params.centerId,
           },
         },

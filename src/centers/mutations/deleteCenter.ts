@@ -10,14 +10,24 @@ const deleteCenterMutation = async ({ where }: DeleteCenterInput) => {
 
   if (!isExist) throw 'Centro no encontrado'
 
-  const center = await db.user.delete({
+  const center = await db.center.findUnique({ where, include: { foods: true } })
+
+  if (center && center.foods.length) {
+    await db.needsFood.deleteMany({ where: { centerId: where.id } })
+
+    for (const food of center.foods) {
+      await db.food.delete({ where: { id: food.foodId } })
+    }
+  }
+
+  const centerDeleted = await db.user.delete({
     where,
     include: {
       center: true,
     },
   })
 
-  return dataFormater(center)
+  return dataFormater(centerDeleted)
 }
 
 export { deleteCenterMutation }
