@@ -15,6 +15,7 @@ const updateDonatorMutation = async ({ data, where }: UpdateDonatorInput) => {
     where,
     data: {
       name: data.name,
+      email: data.email,
       hashedPassword: data.hashedPassword,
       onboardingStepPosition: data.onboardingStepPosition,
       donator: {

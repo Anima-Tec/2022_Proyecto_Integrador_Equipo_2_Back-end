@@ -1,24 +1,28 @@
 ### Create Center Food /:centerId/:foodId
-POST http://localhost:4000/api-alidar/centers/ef46593c-91f9-4f1d-9bf6-cb3e77f3fc04/foods
+POST http://localhost:4000/api-alidar/centers/:centerId/foods
 Content-Type: application/json
+Authorization: Bearer <accessToken>
 
 # Request body (required)
 {
-    "name": "Example fooddsdsddsadasdsadsad",
+    "name": "Example food",
     "category": "Example category",
     "amount": 12,
     "unitMeasurement": "KG"
 }
 
 ### Get Foods
-GET http://localhost:4000/api-alidar/centers/ef46593c-91f9-4f1d-9bf6-cb3e77f3fc04/foods
+GET http://localhost:4000/api-alidar/centers/:centerId/foods
+Authorization: Bearer <accessToken>
 
 ### Get Center foods /:centerId/foods/:foodId
-GET http://localhost:4000/api-alidar/centers/ef46593c-91f9-4f1d-9bf6-cb3e77f3fc04/foods/0c1f4595-7726-40f8-ab8d-dae88d8791fa
+GET http://localhost:4000/api-alidar/centers/:centerId/foods/:foodId
+Authorization: Bearer <accessToken>
 
 ### Update Center food /:centerId/foods/:foodId
-PATCH http://localhost:4000/api-alidar/centers/ef46593c-91f9-4f1d-9bf6-cb3e77f3fc04/foods/0c1f4595-7726-40f8-ab8d-dae88d8791fa
+PATCH http://localhost:4000/api-alidar/centers/:centerId/foods/:foodId
 Content-Type: application/json
+Authorization: Bearer <accessToken>
 
 # Request body (optional)
 {
@@ -28,5 +32,6 @@ Content-Type: application/json
 }
 
 ### Delete Center food /:centerId/foods/:foodId
-DELETE http://localhost:4000/api-alidar/centers/ef46593c-91f9-4f1d-9bf6-cb3e77f3fc04/foods/0c1f4595-7726-40f8-ab8d-dae88d8791fa
+DELETE http://localhost:4000/api-alidar/centers/:centerId/foods/:foodId
+Authorization: Bearer <accessToken>
 
