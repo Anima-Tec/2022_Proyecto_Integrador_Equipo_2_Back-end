@@ -12,6 +12,7 @@ npm i # install dependencies
 ```
 
 ### Database creation
+How the first step is create the database (with name alidar), on the command line of your database provider. And the next step is run this command on the project:
 
 ```
 npm run db:setup # Reset db, run migrations and seeds
