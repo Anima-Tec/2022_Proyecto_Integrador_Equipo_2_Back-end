@@ -11,6 +11,12 @@ cd 2022_Proyecto_Integrador_Equipo_2_Back-end
 npm i # install dependencies
 ```
 
+### Database creation
+
+```
+npm run db:setup # Reset db, run migrations and seeds
+```
+
 ## Run the app
 ```
 npm run dev
