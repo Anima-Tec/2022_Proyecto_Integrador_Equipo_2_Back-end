@@ -24,4 +24,10 @@ Ensure the `.env` file has required environment variables:
 
 ```
 DATABASE_URL=mysql://<USER>:<PASSWORD>@localhost:3306/alidar
+SECRET_TOKEN=<YOUR_SECRET_GENERATE>
+```
+
+For the `SECRET_TOKEN` environment, you can enter anything but we recommend that you generate this secret from NODE console with following command:
+```
+require('crypto').randomBytes(64).toString('hex')
 ```
