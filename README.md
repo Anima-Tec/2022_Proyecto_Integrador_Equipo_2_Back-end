@@ -14,3 +14,14 @@ npm i # install dependencies
 ## Run the app
 ```
 npm run dev
+```
+
+## Environment Variables
+
+By default, env files have been removed from the repo to securize our process. To work, you need to generate the env files.
+
+Ensure the `.env` file has required environment variables:
+
+```
+DATABASE_URL=mysql://<USER>:<PASSWORD>@localhost:3306/alidar
+```
