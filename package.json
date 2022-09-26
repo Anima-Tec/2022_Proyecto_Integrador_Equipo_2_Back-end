@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "start": "tsc && node build/index.js",
-    "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/config/index.ts",
+    "dev": "nodemon src/config/index.ts",
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix && prettier --write .",
     "studio": "prisma studio",
