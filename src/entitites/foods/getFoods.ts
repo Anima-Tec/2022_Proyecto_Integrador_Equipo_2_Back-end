@@ -1,7 +1,7 @@
 // import { dataFormater } from '../../../utils/dataFormater'
 
 import { PrismaClient, Prisma } from '@prisma/client'
-import { FoodPrisma } from '../../../utils/dataFormater'
+import { FoodPrisma } from '../../utils/dataFormater'
 const db = new PrismaClient()
 
 export type GetFoodsInput = Pick<Prisma.NeedsFoodFindManyArgs, 'where'>

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { DonatorService } from '../services/donators.services'
+import { DonatorService } from '../services/entities_services/donators.services'
 
 class DonatorController {
   static async getDonator(req: Request, res: Response) {

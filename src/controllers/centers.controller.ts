@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { CenterService } from '../services/centers.services'
+import { CenterService } from '../services/entities_services/centers.services'
 
 class CenterController {
   static async getCenter(req: Request, res: Response) {
