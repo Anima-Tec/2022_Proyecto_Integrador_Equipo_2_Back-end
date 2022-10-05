@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { FoodService } from '../services/foods.services'
+import { FoodService } from '../services/entities_services/foods.services'
 
 class FoodController {
   static async createFood(req: Request, res: Response) {
