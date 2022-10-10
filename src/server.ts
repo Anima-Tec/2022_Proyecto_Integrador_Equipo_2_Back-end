@@ -4,8 +4,13 @@ import morgan from 'morgan'
 import bodyParser from 'body-parser'
 import { authRoutes, routes } from './routes'
 import { validateToken } from './middlewares/validateToken'
+import PrettyError from 'pretty-error'
 
 export const app: Application = express()
+
+// instantiate PrettyError, which can then be used to render error objects
+const pretty = new PrettyError()
+pretty.start()
 
 /* For accepting post form data */
 app.use(bodyParser.json({ limit: '10mb' }))
