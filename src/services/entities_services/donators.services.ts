@@ -1,7 +1,19 @@
-import { CreateDonatorInput, createDonatorMutation } from '../donators/mutations/createDonator'
-import { DeleteDonatorInput, deleteDonatorMutation } from '../donators/mutations/deleteDonator'
-import { UpdateDonatorInput, updateDonatorMutation } from '../donators/mutations/updateDonator'
-import { GetDonatorInput, getDonatorMutation } from '../donators/queries/getDonator'
+import {
+  CreateDonatorInput,
+  createDonatorMutation,
+} from '../../entitites/donators/createDonator'
+import {
+  DeleteDonatorInput,
+  deleteDonatorMutation,
+} from '../../entitites/donators/deleteDonator'
+import {
+  UpdateDonatorInput,
+  updateDonatorMutation,
+} from '../../entitites/donators/updateDonator'
+import {
+  GetDonatorInput,
+  getDonatorMutation,
+} from '../../entitites/donators/getDonator'
 
 class DonatorService {
   static async createDonator({ data }: CreateDonatorInput) {

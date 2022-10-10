@@ -40,7 +40,6 @@ class AuthController {
 
       const donator = await AuthService.donatorSignup({ data })
 
-      console.log(donator)
       res.status(201).send(donator)
     } catch (error) {
       console.log({ error })
@@ -61,7 +60,6 @@ class AuthController {
 
       const center = await AuthService.centerSignup({ data })
 
-      console.log(center)
       res.status(201).send(center)
     } catch (error) {
       console.log({ error })

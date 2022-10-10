@@ -4,14 +4,34 @@ import { protectRoutesByRol } from '../middlewares/protectRoutesByRol'
 
 const FoodRouter = express.Router()
 
-FoodRouter.post('/centers/:centerId/foods', protectRoutesByRol('CENTER'), FoodController.createFood)
+FoodRouter.post(
+  '/centers/:centerId/foods',
+  protectRoutesByRol('CENTER'),
+  FoodController.createFood,
+)
 
-FoodRouter.get('/centers/:centerId/foods/:foodId', protectRoutesByRol('CENTER'), FoodController.getFood)
+FoodRouter.get(
+  '/centers/:centerId/foods/:foodId',
+  protectRoutesByRol('CENTER'),
+  FoodController.getFood,
+)
 
-FoodRouter.get('/centers/:centerId/foods', protectRoutesByRol('CENTER'), FoodController.getFoods)
+FoodRouter.get(
+  '/centers/:centerId/foods',
+  protectRoutesByRol('CENTER'),
+  FoodController.getFoods,
+)
 
-FoodRouter.patch('/centers/:centerId/foods/:foodId', protectRoutesByRol('CENTER'), FoodController.updateFood)
+FoodRouter.patch(
+  '/centers/:centerId/foods/:foodId',
+  protectRoutesByRol('CENTER'),
+  FoodController.updateFood,
+)
 
-FoodRouter.delete('/centers/:centerId/foods/:foodId', protectRoutesByRol('CENTER'), FoodController.deleteFood)
+FoodRouter.delete(
+  '/centers/:centerId/foods/:foodId',
+  protectRoutesByRol('CENTER'),
+  FoodController.deleteFood,
+)
 
 export { FoodRouter }

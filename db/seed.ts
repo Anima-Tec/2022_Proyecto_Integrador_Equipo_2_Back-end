@@ -51,28 +51,30 @@ async function seed() {
     })
 
     if (center.foods?.length) {
-      center.foods.forEach(async ({ name, category, amount, unitMeasurement }) => {
-        await db.center.update({
-          where: { id: centerCreated.id },
-          data: {
-            foods: {
-              create: {
-                amount,
-                unitMeasurement: unitMeasurement as UnitMeasurementType,
-                food: {
-                  create: {
-                    name,
-                    category,
+      center.foods.forEach(
+        async ({ name, category, amount, unitMeasurement }) => {
+          await db.center.update({
+            where: { id: centerCreated.id },
+            data: {
+              foods: {
+                create: {
+                  amount,
+                  unitMeasurement: unitMeasurement as UnitMeasurementType,
+                  food: {
+                    create: {
+                      name,
+                      category,
+                    },
                   },
                 },
               },
             },
-          },
-          include: {
-            foods: true,
-          },
-        })
-      })
+            include: {
+              foods: true,
+            },
+          })
+        },
+      )
     }
   }
 }

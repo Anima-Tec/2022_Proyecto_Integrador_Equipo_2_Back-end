@@ -3,7 +3,10 @@ import { dataFormater } from '../../utils/dataFormater'
 import { PrismaClient, Prisma } from '@prisma/client'
 const db = new PrismaClient()
 
-export type UpdateFoodInput = Pick<Prisma.NeedsFoodUpdateArgs, 'where' | 'data'> &
+export type UpdateFoodInput = Pick<
+  Prisma.NeedsFoodUpdateArgs,
+  'where' | 'data'
+> &
   Pick<Prisma.FoodUpdateArgs, 'where' | 'data'>
 
 const updateFoodMutation = async ({ where, data }: UpdateFoodInput) => {

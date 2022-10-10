@@ -26,10 +26,12 @@ const dataFormater = (data: any) => {
         const { id, hashedPassword, ...dataWithoutIdAndPassword }: User = value
         Object.assign(formattedObject, { ...dataWithoutIdAndPassword })
       } else if (key === 'foods' && value.length) {
-        const foods = value.map(({ food: { ...dataFood }, ...restData }: FoodPrisma) => ({
-          ...dataFood,
-          ...restData,
-        }))
+        const foods = value.map(
+          ({ food: { ...dataFood }, ...restData }: FoodPrisma) => ({
+            ...dataFood,
+            ...restData,
+          }),
+        )
         Object.assign(formattedObject, { foods })
       } else {
         if (key.toLowerCase() !== 'hashedPassword'.toLowerCase()) {

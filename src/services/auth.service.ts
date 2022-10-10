@@ -1,7 +1,13 @@
 import { simpleLoginMutation } from '../auth/simpleLogin'
 import { googleLoginMutation } from '../auth/googleLogin'
-import { CreateCenterInput, createCenterMutation } from '../centers/mutations/createCenter'
-import { CreateDonatorInput, createDonatorMutation } from '../donators/mutations/createDonator'
+import {
+  CreateCenterInput,
+  createCenterMutation,
+} from '../entitites/centers/createCenter'
+import {
+  CreateDonatorInput,
+  createDonatorMutation,
+} from '../entitites/donators/createDonator'
 import { AuthLogin, GoogleAuthData } from '../interfaces/auth.interface'
 
 class AuthService {

@@ -12,6 +12,7 @@ npm i # install dependencies
 ```
 
 ### Database creation
+
 How the first step is to create the database (named alidar), on the command line of your database provider. And the next step is to run the following command on the project:
 
 ```
@@ -19,6 +20,7 @@ npm run db:setup # Reset db, run migrations and seeds
 ```
 
 ## Run the app
+
 ```
 npm run dev
 ```
@@ -35,6 +37,7 @@ SECRET_TOKEN=<YOUR_SECRET_GENERATE>
 ```
 
 For the `SECRET_TOKEN` environment, you can enter anything but we recommend that you generate this secret from NODE console with following command:
+
 ```
 require('crypto').randomBytes(64).toString('hex')
 ```

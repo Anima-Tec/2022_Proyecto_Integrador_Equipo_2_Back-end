@@ -39,7 +39,8 @@ const centers = [
     phone: '234567764565',
     street: 'Av 18 de julio',
     numberDoor: '1232',
-    description: 'Somos un centro deportivo y a su vez, busca poder llegarle alimentos a personas necesitadas',
+    description:
+      'Somos un centro deportivo y a su vez, busca poder llegarle alimentos a personas necesitadas',
     zone: 'Centro',
     departament: 'Montevideo',
     numberVolunteersRequired: 10,
