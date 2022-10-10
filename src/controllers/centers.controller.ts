@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { CenterService } from '../services/centers.services'
+import { CenterService } from '../services/entities_services/centers.services'
 
 class CenterController {
   static async getCenter(req: Request, res: Response) {
@@ -11,7 +11,6 @@ class CenterController {
       })
 
       if (center) {
-        console.log(center)
         return res.status(200).send(center)
       }
 
@@ -27,7 +26,6 @@ class CenterController {
       const centers = await CenterService.getCenters()
 
       if (centers.length) {
-        console.log(centers)
         return res.status(200).send(centers)
       }
 
@@ -45,8 +43,7 @@ class CenterController {
         where: { id: req.params.id },
       })
 
-      console.log(center)
-      return res.status(200).end()
+      res.status(200).send(center)
     } catch (error) {
       console.log({ error })
       res.status(500).send({ message: error })
@@ -59,8 +56,7 @@ class CenterController {
         where: { id: req.params.id },
       })
 
-      console.log(center)
-      return res.status(200).end()
+      res.status(204).end()
     } catch (error) {
       console.log({ error })
       res.status(500).send({ message: error })

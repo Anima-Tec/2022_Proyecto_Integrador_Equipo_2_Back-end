@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { FoodService } from '../services/foods.services'
+import { FoodService } from '../services/entities_services/foods.services'
 
 class FoodController {
   static async createFood(req: Request, res: Response) {
@@ -11,7 +11,6 @@ class FoodController {
         data: req.body,
       })
 
-      console.log(food)
       res.status(201).send(food)
     } catch (error) {
       console.log({ error })
@@ -31,7 +30,6 @@ class FoodController {
       })
 
       if (food) {
-        console.log(food)
         return res.status(200).send(food)
       }
 
@@ -51,7 +49,6 @@ class FoodController {
       })
 
       if (foods.length) {
-        console.log(foods)
         return res.status(200).send(foods)
       }
 
@@ -74,7 +71,6 @@ class FoodController {
         data: req.body,
       })
 
-      console.log(food)
       res.status(200).send(food)
     } catch (error) {
       console.log({ error })
@@ -93,8 +89,7 @@ class FoodController {
         },
       })
 
-      console.log(food)
-      res.status(200).send(food)
+      res.status(204).end()
     } catch (error) {
       console.log({ error })
       res.status(500).send({ message: error })

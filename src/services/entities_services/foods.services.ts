@@ -1,8 +1,8 @@
-import { CreateFoodInput, createFoodMutation } from '../foods/mutations/createFood'
-import { DeleteFoodInput, deleteFoodMutation } from '../foods/mutations/deleteFood'
-import { UpdateFoodInput, updateFoodMutation } from '../foods/mutations/updateFood'
-import { GetFoodInput, getFoodQuery } from '../foods/queries/getFood'
-import { GetFoodsInput, getFoodsQuery } from '../foods/queries/getFoods'
+import { CreateFoodInput, createFoodMutation } from '../../entitites/foods/createFood'
+import { DeleteFoodInput, deleteFoodMutation } from '../../entitites/foods/deleteFood'
+import { UpdateFoodInput, updateFoodMutation } from '../../entitites/foods/updateFood'
+import { GetFoodInput, getFoodQuery } from '../../entitites/foods/getFood'
+import { GetFoodsInput, getFoodsQuery } from '../../entitites/foods/getFoods'
 
 class FoodService {
   static async createFood({ data, where }: CreateFoodInput) {

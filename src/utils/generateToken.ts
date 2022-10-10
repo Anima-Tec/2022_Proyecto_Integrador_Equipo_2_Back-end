@@ -5,7 +5,7 @@ dotenv.config()
 
 const generateToken = async (data: UserToToken) => {
   // if (process.env.SECRET_TOKEN) {
-  const token = jwt.sign(data, process.env.SECRET_TOKEN ?? 'secret', {
+  const token = jwt.sign(data, process.env.SECRET_TOKEN as string, {
     expiresIn: '7d',
   })
 

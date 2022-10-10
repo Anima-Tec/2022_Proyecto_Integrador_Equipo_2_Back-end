@@ -14,7 +14,7 @@ const validateToken = async (req: Request, res: Response, next: NextFunction) =>
 
     if (!accessToken) return res.status(401).send({ message: 'Invalid token' })
 
-    jwt.verify(accessToken, process.env.SECRET_TOKEN ?? 'secret', (err: any, decoded: any) => {
+    jwt.verify(accessToken, process.env.SECRET_TOKEN as string, (err: any, decoded: any) => {
       if (err)
         return res.status(401).json(err)
 

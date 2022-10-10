@@ -1,4 +1,4 @@
-// import { dataFormater } from '../../utils/dataFormater'
+// import { dataFormater } from '../../../utils/dataFormater'
 
 import { PrismaClient, Prisma } from '@prisma/client'
 import { FoodPrisma } from '../../utils/dataFormater'

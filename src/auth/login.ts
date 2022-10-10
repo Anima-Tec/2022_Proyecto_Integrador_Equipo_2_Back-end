@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt'
-import { AuthLogin, UserToToken } from '../../interfaces/auth.interface'
-import { generateToken } from '../../utils/generateToken'
+import { AuthLogin, UserToToken } from '../interfaces/auth.interface'
+import { generateToken } from '../utils/generateToken'
 
 import { PrismaClient } from '@prisma/client'
-import { dataFormater } from '../../utils/dataFormater'
+import { dataFormater } from '../utils/dataFormater'
 const db = new PrismaClient()
 
 const loginMutation = async ({ data }: AuthLogin) => {
