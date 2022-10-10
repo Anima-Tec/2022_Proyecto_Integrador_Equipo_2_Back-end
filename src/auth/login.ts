@@ -7,7 +7,8 @@ import { dataFormater } from '../utils/dataFormater'
 const db = new PrismaClient()
 
 const loginMutation = async ({ data }: AuthLogin) => {
-  const errorMessage = 'La direccion de correo electronico o la contraseña que has introducido no son correctas'
+  const errorMessage =
+    'La direccion de correo electronico o la contraseña que has introducido no son correctas'
 
   const user = await db.user.findUnique({
     where: {

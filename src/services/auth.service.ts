@@ -1,6 +1,12 @@
 import { loginMutation } from '../auth/login'
-import { CreateCenterInput, createCenterMutation } from '../entitites/centers/createCenter'
-import { CreateDonatorInput, createDonatorMutation } from '../entitites/donators/createDonator'
+import {
+  CreateCenterInput,
+  createCenterMutation,
+} from '../entitites/centers/createCenter'
+import {
+  CreateDonatorInput,
+  createDonatorMutation,
+} from '../entitites/donators/createDonator'
 import { AuthLogin } from '../interfaces/auth.interface'
 
 class AuthService {

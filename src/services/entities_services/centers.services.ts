@@ -1,8 +1,21 @@
-import { CreateCenterInput, createCenterMutation } from '../../entitites/centers/createCenter'
+import {
+  CreateCenterInput,
+  createCenterMutation,
+} from '../../entitites/centers/createCenter'
 import { getCentersQuery } from '../../entitites/centers/getCenters'
-import { getCenterQuery, GetCenterInput } from '../../entitites/centers/getCenter'
-import { deleteCenterMutation, DeleteCenterInput } from '../../entitites/centers/deleteCenter'
-import { updateCenterMutation, UpadteCenterInput, UpadteUserInput } from '../../entitites/centers/updateCenter'
+import {
+  getCenterQuery,
+  GetCenterInput,
+} from '../../entitites/centers/getCenter'
+import {
+  deleteCenterMutation,
+  DeleteCenterInput,
+} from '../../entitites/centers/deleteCenter'
+import {
+  updateCenterMutation,
+  UpadteCenterInput,
+  UpadteUserInput,
+} from '../../entitites/centers/updateCenter'
 
 class CenterService {
   static async createCenter({ data }: CreateCenterInput) {
@@ -13,7 +26,10 @@ class CenterService {
     return await deleteCenterMutation({ where })
   }
 
-  static async updateCenter({ data, where }: UpadteCenterInput & UpadteUserInput) {
+  static async updateCenter({
+    data,
+    where,
+  }: UpadteCenterInput & UpadteUserInput) {
     return await updateCenterMutation({ data, where })
   }
 

@@ -6,7 +6,10 @@ const db = new PrismaClient()
 export type UpadteUserInput = Pick<Prisma.UserUpdateArgs, 'where' | 'data'>
 export type UpadteCenterInput = Pick<Prisma.CenterUpdateArgs, 'where' | 'data'>
 
-const updateCenterMutation = async ({ data, where }: UpadteUserInput & UpadteCenterInput) => {
+const updateCenterMutation = async ({
+  data,
+  where,
+}: UpadteUserInput & UpadteCenterInput) => {
   const isExist = await db.user.findUnique({ where })
 
   if (!isExist) throw 'Centro no encontrado'
