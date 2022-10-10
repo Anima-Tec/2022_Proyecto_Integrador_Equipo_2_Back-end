@@ -7,9 +7,7 @@ class AuthController {
     try {
       const user = await AuthService.login({ data: req.body })
 
-      // res.header('Authorization', `Bearer ${user.accessToken}`).send(user.accessToken)
-      // res.setHeader('Authorization', `Bearer ${user.accessToken}`).send(user.accessToken)
-      res.send(user)
+      res.status(200).send(user)
     } catch (error) {
       console.log({ error })
       res.status(500).send({ message: error })
@@ -29,7 +27,6 @@ class AuthController {
 
       const donator = await AuthService.donatorSignup({ data })
 
-      console.log(donator)
       res.status(201).send(donator)
     } catch (error) {
       console.log({ error })
@@ -50,7 +47,6 @@ class AuthController {
 
       const center = await AuthService.centerSignup({ data })
 
-      console.log(center)
       res.status(201).send(center)
     } catch (error) {
       console.log({ error })

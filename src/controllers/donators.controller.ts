@@ -11,7 +11,6 @@ class DonatorController {
       })
 
       if (donator) {
-        console.log(donator)
         return res.status(200).send(donator)
       }
 
@@ -29,8 +28,7 @@ class DonatorController {
         where: { id: req.params.id },
       })
 
-      console.log(donator)
-      res.status(200).end()
+      res.status(200).end(donator)
     } catch (error) {
       console.log({ error })
       res.status(500).send({ message: error })
@@ -46,8 +44,7 @@ class DonatorController {
       })
 
       if (donator) {
-        console.log(donator)
-        return res.status(200).end()
+        return res.status(204).end()
       }
 
       res.status(404).send({ error: 'Donador no encontrado' })

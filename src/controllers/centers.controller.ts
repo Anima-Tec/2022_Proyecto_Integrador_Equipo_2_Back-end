@@ -43,7 +43,7 @@ class CenterController {
         where: { id: req.params.id },
       })
 
-      return res.status(200).end()
+      res.status(200).send(center)
     } catch (error) {
       console.log({ error })
       res.status(500).send({ message: error })
@@ -56,7 +56,7 @@ class CenterController {
         where: { id: req.params.id },
       })
 
-      return res.status(200).send(center)
+      res.status(204).end()
     } catch (error) {
       console.log({ error })
       res.status(500).send({ message: error })
