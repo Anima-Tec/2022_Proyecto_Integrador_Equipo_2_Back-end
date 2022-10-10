@@ -23,7 +23,6 @@ const googleLoginMutation = async ({ data }: GoogleAuthData) => {
   if (!user) {
     donatorCreated = await db.user.create({
       data: {
-        id: data.clientId,
         name: data.name,
         email: data.email,
         rol: 'DONATOR',

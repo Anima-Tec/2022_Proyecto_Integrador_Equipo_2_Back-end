@@ -15,7 +15,7 @@ const simpleLoginMutation = async ({ data }: AuthLogin) => {
     },
   })
 
-  if (!user) throw errorMessage
+  if (!user || !user.hashedPassword) throw errorMessage
 
   const validPassword = await bcrypt.compare(data.password, user.hashedPassword as string)
 

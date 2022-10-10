@@ -11,7 +11,6 @@ class AuthController {
 
       if (req.body.isGoogleLogin) {
         const data = {
-          clientId: req.body.clientId,
           name: (decodedToken(req.body.credential) as GoogleAuthCredentialDecoded).given_name,
           lastName: (decodedToken(req.body.credential) as GoogleAuthCredentialDecoded).family_name,
           email: (decodedToken(req.body.credential) as GoogleAuthCredentialDecoded).email,

@@ -22,7 +22,6 @@ export interface GetUserAuthInfoRequest extends Request {
 
 export interface GoogleAuthData {
   data: {
-    clientId: string
     name: string
     lastName: string
     email: string
