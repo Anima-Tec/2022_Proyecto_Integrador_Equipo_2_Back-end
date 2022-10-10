@@ -28,7 +28,7 @@ class DonatorController {
         where: { id: req.params.id },
       })
 
-      res.status(200).end(donator)
+      res.status(200).send(donator)
     } catch (error) {
       console.log({ error })
       res.status(500).send({ message: error })

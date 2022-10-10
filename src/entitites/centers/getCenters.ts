@@ -1,13 +1,19 @@
-import { Center } from '../../interfaces/center.interface'
 import { dataFormater } from '../../utils/dataFormater'
 
 import { PrismaClient } from '@prisma/client'
 const db = new PrismaClient()
 
 const getCentersQuery = async () => {
-  const centers: Center[] = await db.center.findMany()
+  const centers = await db.center.findMany({
+    include: { user: true, foods: true },
+  })
 
-  return centers.map((center: Center) => dataFormater(center))
+  // TO-DO: change the type any to center type with foods
+  return centers
+    .filter(
+      (center: any) => center.foods.length || center.numberVolunteersRequired,
+    )
+    .map((center: any) => dataFormater(center))
 }
 
 export { getCentersQuery }
