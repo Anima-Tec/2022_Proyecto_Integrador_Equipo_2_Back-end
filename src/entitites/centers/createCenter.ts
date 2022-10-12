@@ -23,11 +23,19 @@ const createCenterMutation = async ({ data }: CreateCenterInput) => {
           phone: data.phone,
           numberVolunteersRequired: data.numberVolunteersRequired ?? 0,
           street: data.street,
-          zone: data.zone,
           numberDoor: data.numberDoor,
-          departament: data.departament,
-          description: data.description ?? undefined,
-          photo: data.photo ?? undefined,
+          zone: {
+            create: {
+              name: data.zone,
+              deparment: {
+                create: {
+                  name: data.departament,
+                },
+              },
+            },
+          },
+          description: data.description ?? null,
+          photo: null,
         },
       },
     },

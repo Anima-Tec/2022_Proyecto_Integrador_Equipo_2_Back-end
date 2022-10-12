@@ -37,9 +37,17 @@ async function seed() {
             phone: center.phone,
             numberVolunteersRequired: center.numberVolunteersRequired ?? 0,
             street: center.street,
-            zone: center.zone,
             numberDoor: center.numberDoor,
-            departament: center.departament,
+            zone: {
+              create: {
+                name: center.zone,
+                deparment: {
+                  create: {
+                    name: center.departament,
+                  },
+                },
+              },
+            },
             description: center.description ?? null,
             photo: null,
           },

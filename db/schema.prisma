@@ -28,6 +28,7 @@ model User {
   name                   String
   email                  String   @unique
   hashedPassword         String
+  email_validate         Boolean  @default(false)
   rol                    UserType
   onboardingStepPosition Int      @default(1)
   donator                Donator?
@@ -45,13 +46,27 @@ model Center {
   phone                    String
   numberVolunteersRequired Int?        @default(0)
   street                   String
-  zone                     String
   numberDoor               String
-  departament              String
   description              String?     @default("")
   photo                    String?     @db.LongText
+  zoneId                   String
   user                     User        @relation(fields: [id], references: [id])
+  zone                     Zone        @relation(fields: [zoneId], references: [id])
   foods                    NeedsFood[]
+}
+
+model Department {
+  id   String @id @default(uuid())
+  name String
+  zone Zone[]
+}
+
+model Zone {
+  id           String     @id @default(uuid())
+  name         String
+  departmentId String
+  deparment    Department @relation(fields: [departmentId], references: [id])
+  Center       Center[]
 }
 
 model Food {
