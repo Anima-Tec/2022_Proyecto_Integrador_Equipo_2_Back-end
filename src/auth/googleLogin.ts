@@ -6,16 +6,14 @@ import { PrismaClient } from '@prisma/client'
 const db = new PrismaClient()
 
 const googleLoginMutation = async ({ data }: GoogleAuthData) => {
-  console.log(data)
-
   const user = await db.user.findUnique({
     where: {
       email: data?.email,
     },
   })
 
-  if (user && !user.id.includes('google')) {
-    throw 'Ya existe un usuario normal con el mismo usuario'
+  if (user && user.hashedPassword) {
+    throw 'Ya existe un usuario normal con el mismo email'
   }
 
   let donatorCreated
