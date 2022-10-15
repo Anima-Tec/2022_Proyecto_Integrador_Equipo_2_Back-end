@@ -4,7 +4,7 @@ deleteGroup() {
     # Check root user
     if [ $(id -u) -eq 0 ]; then
         read -p "Ingresa el nombre del grupo : " groupName
-        groupFind=$(cat /etc/group | cut -d : -f 1 | grep "$groupName" | sed 1q)
+        groupFind=$(grep "$groupName" /etc/group | cut -d : -f 1)
 
         if [ "$groupFind" = "$groupName" ]; then
             groupdel "$groupName"

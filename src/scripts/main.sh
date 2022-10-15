@@ -4,6 +4,12 @@
 # que permita ABM de usuarios y grupos del sistema.
 
 main() {
+    if [ $(id -u) -ne 0 ]; then
+        echo "NECESITAS PERMISOS ROOT"
+        sleep 2
+        exit
+    fi
+
     chmod +x ./users/create_user.sh
     chmod +x ./users/update_user.sh
     chmod +x ./users/delete_user.sh
@@ -57,3 +63,5 @@ menu() {
         esac
     done
 }
+
+main

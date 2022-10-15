@@ -5,14 +5,7 @@ createUser() {
     # Check root user
     if [ $(id -u) -eq 0 ]; then
         read -p "Ingresa el nombre del usuario : " username
-        userFind=$(cat /etc/passwd | cut -d : -f 1 | grep "$username" | sed 1q)
-
-        # for i in $(grep "$username" /etc/passwd | cut -d : -f 1); do
-        #     if [ "$i" = "$username" ]; then
-        #         echo "Ya existe el usuario $username!"
-        #         userExist=1
-        #     fi
-        # done
+        userFind=$(grep "$username" /etc/passwd | cut -d : -f 1)
 
         if [ "$userFind" = "$username" ]; then
             echo "Ya existe el usuario $username!"
