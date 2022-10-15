@@ -1,12 +1,12 @@
 import bcrypt from 'bcrypt'
-import { AuthLogin, UserToToken } from '../interfaces/auth.interface'
-import { generateToken } from '../utils/generateToken'
+import { AuthLogin, UserToToken } from '../../interfaces/auth.interface'
+import { generateToken } from '../../utils/generateToken'
 
 import { PrismaClient } from '@prisma/client'
-import { dataFormater } from '../utils/dataFormater'
+import { dataFormater } from '../../utils/dataFormater'
 const db = new PrismaClient()
 
-const simpleLoginMutation = async ({ data }: AuthLogin) => {
+const loginMutation = async ({ data }: AuthLogin) => {
   const errorMessage = 'La direccion de correo electronico o la contraseña que has introducido no son correctas'
 
   const user = await db.user.findUnique({
@@ -17,7 +17,7 @@ const simpleLoginMutation = async ({ data }: AuthLogin) => {
 
   if (!user || !user.hashedPassword) throw errorMessage
 
-  const validPassword = await bcrypt.compare(data.password, user.hashedPassword as string)
+  const validPassword = await bcrypt.compare(data.password, user.hashedPassword)
 
   if (!validPassword) throw errorMessage
 
@@ -31,4 +31,4 @@ const simpleLoginMutation = async ({ data }: AuthLogin) => {
   return { ...dataFormater(user), accessToken }
 }
 
-export { simpleLoginMutation }
+export { loginMutation }

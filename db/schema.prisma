@@ -27,7 +27,7 @@ model User {
   id                     String   @id @default(uuid())
   name                   String
   email                  String   @unique
-  hashedPassword         String?
+  hashedPassword         String
   rol                    UserType
   onboardingStepPosition Int      @default(1)
   donator                Donator?
