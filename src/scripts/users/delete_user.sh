@@ -5,7 +5,7 @@ deleteUser() {
     # Check root user
     if [ $(id -u) -eq 0 ]; then
         read -p "Ingresa el nombre del usuario : " username
-        userFind=$(cat /etc/passwd | cut -d : -f 1 | grep "$username" | sed 1q)
+        userFind=$(grep "$username" /etc/passwd | cut -d : -f 1)
 
         if [ "$userFind" = "$username" ]; then
             userdel "$username"
