@@ -9,7 +9,7 @@ menu() {
         optionNumber=$([[ ${#groups} -eq 0 ]] && echo "2" || echo "3")
 
         echo -e "-------------------- Usuario --------------------\n"
-        source ./data_user.sh
+        source ./dataUser.sh
         dataUser "$user" "showMoreData"
         echo -e "\n-------------------------------------------------\n"
 
@@ -86,7 +86,7 @@ main() {
         exit
     fi
 
-    source ./user_list.sh
+    source ./userList.sh
     usersList "$users"
 
     read -p $'\n'"> Ingresa el nombre del usuario: " tecUserName

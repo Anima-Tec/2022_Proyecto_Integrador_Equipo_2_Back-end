@@ -28,19 +28,19 @@ menu() {
 
         case $option in
         1)
-            bash ./users/create_user.sh
+            bash ./users/createUser.sh
             ;;
         2)
-            bash ./users/update_user.sh
+            bash ./users/updateUser.sh
             ;;
         3)
-            bash ./users/delete_user.sh
+            bash ./users/deleteUser.sh
             ;;
         4)
-            bash ./groups/create_group.sh
+            bash ./groups/createGroup.sh
             ;;
         5)
-            bash ./groups/delete_group.sh
+            bash ./groups/deleteGroup.sh
             ;;
         6)
             bash ./system/data.sh
