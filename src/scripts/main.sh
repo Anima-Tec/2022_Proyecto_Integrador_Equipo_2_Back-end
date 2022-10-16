@@ -7,27 +7,24 @@ main() {
         exit
     fi
 
-    chmod +x ./users/create_user.sh
-    chmod +x ./users/update_user.sh
-    chmod +x ./users/delete_user.sh
-    chmod +x ./groups/create_group.sh
-    chmod +x ./groups/delete_group.sh
-    chmod +x ./system/data.sh
-
     menu
 }
 
 menu() {
     while :; do
         clear
-        echo "1) - Crear usuario"
-        echo "2) - Modificar usuario"
-        echo "3) - Eliminar usuario"
-        echo "4) - Crear grupo"
-        echo "5) - Eliminar grupo"
-        echo "6) - Informacion del sistema"
+
+        echo -e "--------------- Menu Principal ----------------\n"
+        echo -e "1) - Crear usuario\n"
+        echo -e "2) - Modificar usuario\n"
+        echo -e "3) - Eliminar usuario\n"
+        echo -e "4) - Crear grupo\n"
+        echo -e "5) - Eliminar grupo\n"
+        echo -e "6) - Informacion del sistema\n"
         echo -e "7) - Salir\n"
-        read -p "Seleccione una opcion: " option
+        echo -e "----------------------------------------------\n"
+
+        read -p "> Seleccione una opcion: " option
 
         case $option in
         1)

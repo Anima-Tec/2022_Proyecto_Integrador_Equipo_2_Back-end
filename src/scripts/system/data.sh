@@ -1,17 +1,15 @@
 #!/bin/bash
 
-# Primera versión de un script de operador de centro de cómputos que permita realizar
-# funciones básicas tales como: ver recursos (espacio en disco, memoria utilizada,
-# servicios, red, etc).
-
 systemDataMenu() {
     while :; do
         clear
-        echo "1) - Espacio del sistema"
-        echo "2) - Memoria utilizada"
-        echo "3) - Servicios"
-        echo "4) - Red"
+        echo -e "----------- Informacion del sistema -----------\n"
+        echo -e "1) - Espacio del sistema\n"
+        echo -e "2) - Memoria utilizada\n"
+        echo -e "3) - Servicios\n"
+        echo -e "4) - Red\n"
         echo -e "5) - Salir\n"
+        echo -e "----------------------------------------------\n"
         read -p "Seleccione una opcion: " option
         clear
         case $option in
@@ -22,9 +20,11 @@ systemDataMenu() {
         2)
             while :; do
                 clear
-                echo "1) - Detallado"
-                echo "2) - Minimo"
-                echo "3) - Salir"
+                echo -e "------------- Espacio del sistema -------------\n"
+                echo -e "1) - Detallado\n"
+                echo -e "2) - Minimo\n"
+                echo -e "3) - Salir\n"
+                echo -e "----------------------------------------------\n"
                 read -p $'\n'"Seleccione una opcion: " detailOption
 
                 clear
@@ -48,11 +48,13 @@ systemDataMenu() {
         3)
             while :; do
                 clear
-                echo "1) - SSH"
-                echo "2) - MYSQL"
-                echo "3) - Firewall"
-                echo "4) - Ver todos los servicios"
-                echo "5) - Salir"
+                echo -e "----------------- Servicios ------------------\n"
+                echo -e "1) - SSH \n"
+                echo -e "2) - MYSQL\n"
+                echo -e "3) - Firewall\n"
+                echo -e "4) - Ver todos los servicios\n"
+                echo -e "5) - Salir\n"
+                echo -e "----------------------------------------------\n"
 
                 read -p $'\n'"Seleccione una opcion: " serviceOption
 
@@ -96,9 +98,12 @@ systemDataMenu() {
         4)
             while :; do
                 clear
-                echo "1) - Ver datos de red detallado"
-                echo "2) - Ver datos de red minimo"
-                echo "3) - Salir"
+                echo -e "-------------------- Red ---------------------\n"
+                echo -e "1) - Ver datos de red detallado\n"
+                echo -e "2) - Ver datos de red minimo\n"
+                echo -e "3) - Salir\n"
+                echo -e "----------------------------------------------\n"
+
                 read -p $'\n'"Seleccione una opcion: " redDetailOption
 
                 clear

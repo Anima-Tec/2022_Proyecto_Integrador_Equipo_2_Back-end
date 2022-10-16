@@ -7,6 +7,7 @@ createGroup() {
         break
     fi
 
+    echo -e "--------------- Crear grupo ----------------\n"
     read -p "Ingresa el nombre del grupo : " groupName
     groupFind=$(grep "$groupName" /etc/group | cut -d : -f 1)
 
@@ -16,9 +17,7 @@ createGroup() {
         groupadd "$groupName"
         [ $? -eq 0 ] && echo -e "Grupo $groupName agregado al sistema correctamente!\n" || echo -e "Fallo al agregar el grupo $groupName al sistema\n"
     fi
-
     sleep 2
 }
 
-clear
 createGroup

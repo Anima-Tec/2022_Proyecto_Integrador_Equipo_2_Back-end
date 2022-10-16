@@ -7,7 +7,7 @@ deleteUser() {
         echo "Necesitas permisos root"
         break
     fi
-
+    echo -e "--------------- Borrar usuario ----------------\n"
     read -p "Ingresa el nombre del usuario : " username
     userFind=$(grep "$username" /etc/passwd | cut -d : -f 1)
 
@@ -17,7 +17,6 @@ deleteUser() {
     else
         echo "No existe el usuario $username"
     fi
-
     sleep 2
 }
 

@@ -6,7 +6,7 @@ deleteGroup() {
         echo "Necesitas permisos root"
         break
     fi
-
+    echo -e "---------------- Borrar grupo -----------------\n"
     read -p "Ingresa el nombre del grupo : " groupName
     groupFind=$(grep "$groupName" /etc/group | cut -d : -f 1)
 
@@ -20,5 +20,4 @@ deleteGroup() {
     sleep 2
 }
 
-clear
 deleteGroup

@@ -21,22 +21,22 @@ createUser() {
         passwd "$username"
         usermod -aG wheel "$username"
         [ $? -eq 0 ] && echo -e "Se agrego el desarrollador $username al sistema correctamente!\n" || echo -e "Fallo al agregar el desarrollador $username al sistema\n"
-        clear
     else
         useradd -M -N "$username"
         passwd "$username"
         [ $? -eq 0 ] && echo -e "Se agrego el usuario $username al sistema correctamente!\n" || echo -e "Fallo al agregar el usuario $username al sistema\n"
-        clear
     fi
     sleep 2
 }
 
-createUserMenu() {
+menu() {
     while :; do
         clear
-        echo "1) - Crear un usuario desarrollador"
-        echo "2) - Crear un usuario normal"
+        echo -e "--------------- Crear usuario ----------------\n"
+        echo -e "1) - Desarrollador\n"
+        echo -e "2) - Normal\n"
         echo -e "3) - Volver al menu\n"
+        echo -e "----------------------------------------------\n"
 
         read -p "Seleccione una opcion: " userOption
 
@@ -59,4 +59,4 @@ createUserMenu() {
     done
 }
 
-createUserMenu
+menu
