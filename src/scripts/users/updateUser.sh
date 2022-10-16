@@ -9,7 +9,7 @@ menu() {
         optionNumber=$([[ ${#groups} -eq 0 ]] && echo "2" || echo "3")
 
         echo -e "-------------------- Usuario --------------------\n"
-        source ./dataUser.sh
+        source ./users/dataUser.sh
         dataUser "$user" "showMoreData"
         echo -e "\n-------------------------------------------------\n"
 
@@ -33,13 +33,13 @@ menu() {
         1)
             echo -e "---------------- Agregar grupo ----------------\n"
             read -p "> Ingrese el nombre del grupo: " newGroup
-            source ../groups/manageGroups
+            source ./groups/manageGroups
             manageGroups $newGroup "add"
             ;;
         2)
             echo -e "---------------- Remover grupo ----------------\n"
             read -p "> Ingrese el nombre del grupo: " removeGroup
-            source ../groups/manageGroups
+            source ./groups/manageGroups
             manageGroups $removeGroup "remove"
             ;;
         3)
@@ -88,7 +88,7 @@ main() {
         exit
     fi
 
-    source ./usersList.sh
+    source ./users/usersList.sh
     usersList "$users"
 
     read -p $'\n'"> Ingresa el nombre del usuario: " tecUserName

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 createGroup() {
+    clear
     # Check root user
     if [ $(id -u) -ne 0 ]; then
         echo "Necesitas permisos root"
