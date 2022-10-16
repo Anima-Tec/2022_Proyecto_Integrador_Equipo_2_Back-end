@@ -7,6 +7,16 @@ main() {
         exit
     fi
 
+    chmod +x ./users/createUser.sh
+    chmod +x ./users/dataUser.sh
+    chmod +x ./users/deleteUser.sh
+    chmod +x ./users/updateUser.sh
+    chmod +x ./users/usersList.sh
+    chmod +x ./groups/createGroup.sh
+    chmod +x ./groups/deleteGroup.sh
+    chmod +x ./groups/manageGroups.sh
+    chmod +x ./system/data.sh
+
     menu
 }
 

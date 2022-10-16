@@ -33,11 +33,13 @@ menu() {
         1)
             echo -e "---------------- Agregar grupo ----------------\n"
             read -p "> Ingrese el nombre del grupo: " newGroup
+            source ../groups/manageGroups
             manageGroups $newGroup "add"
             ;;
         2)
             echo -e "---------------- Remover grupo ----------------\n"
             read -p "> Ingrese el nombre del grupo: " removeGroup
+            source ../groups/manageGroups
             manageGroups $removeGroup "remove"
             ;;
         3)
@@ -86,7 +88,7 @@ main() {
         exit
     fi
 
-    source ./userList.sh
+    source ./usersList.sh
     usersList "$users"
 
     read -p $'\n'"> Ingresa el nombre del usuario: " tecUserName
