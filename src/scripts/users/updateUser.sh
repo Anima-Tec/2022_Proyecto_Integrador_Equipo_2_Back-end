@@ -33,13 +33,13 @@ menu() {
         1)
             echo -e "---------------- Agregar grupo ----------------\n"
             read -p "> Ingrese el nombre del grupo: " newGroup
-            source ./groups/manageGroups
+            source ./groups/manageGroups.sh
             manageGroups $newGroup "add"
             ;;
         2)
             echo -e "---------------- Remover grupo ----------------\n"
             read -p "> Ingrese el nombre del grupo: " removeGroup
-            source ./groups/manageGroups
+            source ./groups/manageGroups.sh
             manageGroups $removeGroup "remove"
             ;;
         3)
