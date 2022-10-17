@@ -1,5 +1,30 @@
 #!/bin/bash
 
+changePassword() {
+    userToChangePass="$1"
+    echo -e "---------------- Cambiar contraseña ----------------\n"
+    passwd "$userToChangePass"
+    clear
+    [ $? -eq 0 ] && echo -e "Se actualizo la contraseña del usuario $userToChangePass correctamente!\n" || echo -e "Fallo al actualizar la contraseña del usuario $userToChangePass\n"
+}
+
+manageRootPrivileges() {
+    user="$1"
+    isRoot="$2"
+
+    if [[ "$isRoot" == "$user" ]]; then
+        echo "Quitar permisos root"
+        gpasswd -d "$user" wheel
+        clear
+        [ $? -eq 0 ] && echo -e "Se le quitaron permisos root al usuario $user!\n" || echo -e "Fallo al remover permisos root al usuario $user\n"
+    else
+        echo "Dar permisos root"
+        usermod -aG wheel "$user"
+        clear
+        [ $? -eq 0 ] && echo -e "Se le asigaron permisos root al usuario $user!\n" || echo -e "Fallo al asignar permisos root al usuario $user\n"
+    fi
+}
+
 menu() {
     while :; do
         clear
@@ -35,41 +60,48 @@ menu() {
             read -p "> Ingrese el nombre del grupo: " newGroup
             source ./groups/manageGroups.sh
             manageGroups $newGroup "add"
-            ;;
-        2)
-            echo -e "---------------- Remover grupo ----------------\n"
-            read -p "> Ingrese el nombre del grupo: " removeGroup
-            source ./groups/manageGroups.sh
-            manageGroups $removeGroup "remove"
-            ;;
-        3)
-            if [[ "$isRoot" == "$user" ]]; then
-                echo "Quitar permisos root"
-                gpasswd -d "$user" wheel
-                [ $? -eq 0 ] && echo -e "Se le quitaron permisos root al usuario $user!\n" || echo -e "Fallo al remover permisos root al usuario $user\n"
-            else
-                echo "Dar permisos root"
-                usermod -aG wheel "$user"
-                [ $? -eq 0 ] && echo -e "Se le asigaron permisos root al usuario $user!\n" || echo -e "Fallo al asignar permisos root al usuario $user\n"
-            fi
-            ;;
-        4)
-            echo -e "---------------- Cambiar contraseña ----------------\n"
-            read -p "> Ingrese la nueva contraseña: " newPass
-
-            passwd "$user"
-            [ $? -eq 0 ] && echo -e "Se actualizo la contraseña del usuario $user correctamente!\n" || echo -e "Fallo al actualizar la contraseña del usuario $user\n"
-            ;;
-        5)
-            break
-            ;;
-        *)
-            echo "ERROR!!!! Opcion incorrecta"
             sleep 2
             ;;
+        2)
+            if [ "$optionNumber" -eq 3 ]; then
+                echo -e "---------------- Remover grupo ----------------\n"
+                read -p "> Ingrese el nombre del grupo: " removeGroup
+                source ./groups/manageGroups.sh
+                manageGroups $removeGroup "remove"
+            else
+                manageRootPrivileges "$user" "$isRoot"
+            fi
+            sleep 2
+            ;;
+        3)
+            if [ "$optionNumber" -eq 2 ]; then
+                changePassword "$user"
+            else
+                manageRootPrivileges "$user" "$isRoot"
+            fi
+            sleep 2
+            ;;
+        4)
+            if [ "$optionNumber" -eq 2 ]; then
+                break
+            else
+                changePassword "$user"
+            fi
+            sleep 2
+            ;;
+        5)
+            if [ "$optionNumber" -eq 3 ]; then
+                break
+            else
+                echo "ERROR!!!! Opcion incorrecta"
+            fi
+            sleep 2
+            ;;
+        *)
+            sleep 2
+            echo "ERROR!!!! Opcion incorrecta"
+            ;;
         esac
-
-        sleep 2
     done
 }
 
@@ -89,7 +121,7 @@ main() {
     fi
 
     source ./users/usersList.sh
-    usersList "$users"
+    usersList
 
     read -p $'\n'"> Ingresa el nombre del usuario: " tecUserName
     userFind=$(grep "$tecUserName" /etc/passwd | cut -d : -f 1 | sed 1q)
@@ -99,8 +131,8 @@ main() {
     else
         clear
         echo "No existe el usuario $tecUserName"
+        sleep 2
     fi
-    sleep 2
 }
 
 main
