@@ -20,10 +20,12 @@ createUser() {
         useradd -M -N -g dev "$username"
         passwd "$username"
         usermod -aG wheel "$username"
+        clear
         [ $? -eq 0 ] && echo -e "Se agrego el desarrollador $username al sistema correctamente!\n" || echo -e "Fallo al agregar el desarrollador $username al sistema\n"
     else
         useradd -M -N "$username"
         passwd "$username"
+        clear
         [ $? -eq 0 ] && echo -e "Se agrego el usuario $username al sistema correctamente!\n" || echo -e "Fallo al agregar el usuario $username al sistema\n"
     fi
     sleep 2

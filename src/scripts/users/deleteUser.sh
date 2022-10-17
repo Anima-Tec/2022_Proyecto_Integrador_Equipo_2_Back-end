@@ -11,7 +11,7 @@ deleteUser() {
     source ./users/usersList.sh
     usersList
 
-    read -p "Ingresa el nombre del a borrar usuario : " username
+    read -p $'\n'"Ingresa el nombre del usuario a borrar : " username
     userFind=$(grep "$username" /etc/passwd | cut -d : -f 1)
 
     if [ "$userFind" = "$username" ]; then

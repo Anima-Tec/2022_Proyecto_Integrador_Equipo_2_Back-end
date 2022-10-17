@@ -13,8 +13,10 @@ deleteGroup() {
 
     if [ "$groupFind" = "$groupName" ]; then
         groupdel "$groupName"
+        clear
         [ $? -eq 0 ] && echo -e "Grupo $groupName eliminado del sistema correctamente!\n" || echo -e "Fallo al eliminar el grupo $groupName del sistema\n"
     else
+        clear
         echo "No existe el grupo $groupName"
     fi
 
