@@ -30,7 +30,7 @@ model User {
   hashedPassword         String
   email_validate         Boolean  @default(false)
   rol                    UserType
-  onboardingStepPosition Int      @default(1)
+  onboardingStepPosition Int      @default(0)
   donator                Donator?
   center                 Center?
 }
@@ -50,7 +50,7 @@ model Center {
   description              String?     @default("")
   photo                    String?     @db.LongText
   zoneId                   String
-  user                     User        @relation(fields: [id], references: [id])
+  user                     User        @relation(fields: [id], references: [id], onDelete: Cascade)
   zone                     Zone        @relation(fields: [zoneId], references: [id], onDelete: Cascade)
   foods                    NeedsFood[]
 }
@@ -81,8 +81,8 @@ model NeedsFood {
   centerId        String
   amount          Int
   unitMeasurement UnitMeasurementType
-  food            Food                @relation(fields: [foodId], references: [id])
-  center          Center              @relation(fields: [centerId], references: [id])
+  food            Food                @relation(fields: [foodId], references: [id], onDelete: Cascade)
+  center          Center              @relation(fields: [centerId], references: [id], onDelete: Cascade)
 
   @@id([foodId, centerId])
 }
