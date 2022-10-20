@@ -57,10 +57,9 @@ async function seed() {
         center: true,
       },
     })
-
     if (center.foods?.length) {
       center.foods.forEach(
-        async ({ name, category, amount, unitMeasurement }) => {
+        async ({ name, amount, unitMeasurement }) => {
           await db.center.update({
             where: { id: centerCreated.id },
             data: {
@@ -71,7 +70,6 @@ async function seed() {
                   food: {
                     create: {
                       name,
-                      category,
                     },
                   },
                 },

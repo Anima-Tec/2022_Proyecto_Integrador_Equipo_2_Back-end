@@ -53,6 +53,7 @@ model Center {
   user                     User        @relation(fields: [id], references: [id])
   zone                     Zone        @relation(fields: [zoneId], references: [id])
   foods                    NeedsFood[]
+  statistics               statistics[]
 }
 
 model Department {
@@ -69,11 +70,24 @@ model Zone {
   Center       Center[]
 }
 
+model statistics {
+  id String 
+  foodId String
+  centerId String
+  date DateTime
+  amount          Int
+  food            Food                @relation(fields: [foodId], references: [id])
+  center          Center              @relation(fields: [centerId], references: [id])
+  @@id([foodId, centerId])
+  
+}
+
+
 model Food {
   id        String      @id @default(uuid())
   name      String
-  category  String
   needsFood NeedsFood[]
+  statistics statistics[]
 }
 
 model NeedsFood {
