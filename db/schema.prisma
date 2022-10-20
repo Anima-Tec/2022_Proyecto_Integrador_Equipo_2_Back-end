@@ -51,22 +51,22 @@ model Center {
   photo                    String?     @db.LongText
   zoneId                   String
   user                     User        @relation(fields: [id], references: [id])
-  zone                     Zone        @relation(fields: [zoneId], references: [id])
+  zone                     Zone        @relation(fields: [zoneId], references: [id], onDelete: Cascade)
   foods                    NeedsFood[]
 }
 
 model Department {
-  id   String @id @default(uuid())
-  name String
-  zone Zone[]
+  id    String @id @default(uuid())
+  name  String @unique
+  zones Zone[]
 }
 
 model Zone {
   id           String     @id @default(uuid())
   name         String
   departmentId String
-  deparment    Department @relation(fields: [departmentId], references: [id])
-  Center       Center[]
+  department   Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  centers      Center[]
 }
 
 model Food {

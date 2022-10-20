@@ -14,11 +14,15 @@ ALTER TABLE `center` DROP COLUMN `departament`,
     DROP COLUMN `zone`,
     ADD COLUMN `zoneId` VARCHAR(191) NOT NULL;
 
+-- AlterTable
+ALTER TABLE `user` ADD COLUMN `email_validate` BOOLEAN NOT NULL DEFAULT false;
+
 -- CreateTable
 CREATE TABLE `Department` (
     `id` VARCHAR(191) NOT NULL,
     `name` VARCHAR(191) NOT NULL,
 
+    UNIQUE INDEX `Department_name_key`(`name`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -35,7 +39,7 @@ CREATE TABLE `Zone` (
 ALTER TABLE `Center` ADD CONSTRAINT `Center_id_fkey` FOREIGN KEY (`id`) REFERENCES `User`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Center` ADD CONSTRAINT `Center_zoneId_fkey` FOREIGN KEY (`zoneId`) REFERENCES `Zone`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Center` ADD CONSTRAINT `Center_zoneId_fkey` FOREIGN KEY (`zoneId`) REFERENCES `Zone`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Zone` ADD CONSTRAINT `Zone_departmentId_fkey` FOREIGN KEY (`departmentId`) REFERENCES `Department`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Zone` ADD CONSTRAINT `Zone_departmentId_fkey` FOREIGN KEY (`departmentId`) REFERENCES `Department`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
