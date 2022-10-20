@@ -2,7 +2,7 @@ import cors from 'cors'
 import express, { Application } from 'express'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
-import { authRoutes, routes } from './routes'
+import { publicRoutes, authRoutes, routes } from './routes'
 import { validateToken } from './middlewares/validateToken'
 import PrettyError from 'pretty-error'
 
@@ -22,5 +22,7 @@ app.use(cors({}))
 app.use(morgan('dev'))
 
 app.use('/api-alidar/auth', authRoutes)
+
+app.use('/api-alidar', publicRoutes)
 
 app.use('/api-alidar', validateToken, routes)
