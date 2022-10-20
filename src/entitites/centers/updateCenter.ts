@@ -27,16 +27,7 @@ const updateCenterMutation = async ({
           numberVolunteersRequired: data.numberVolunteersRequired ?? 0,
           street: data.street,
           numberDoor: data.numberDoor,
-          zone: {
-            update: {
-              name: data.zone,
-              deparment: {
-                create: {
-                  name: data.departament,
-                },
-              },
-            },
-          },
+          zoneId: data.zoneId,
           description: data.description ?? null,
           photo: null,
         },

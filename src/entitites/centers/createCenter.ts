@@ -25,13 +25,8 @@ const createCenterMutation = async ({ data }: CreateCenterInput) => {
           street: data.street,
           numberDoor: data.numberDoor,
           zone: {
-            create: {
-              name: data.zone,
-              deparment: {
-                create: {
-                  name: data.departament,
-                },
-              },
+            connect: {
+              id: data.zoneId,
             },
           },
           description: data.description ?? null,
