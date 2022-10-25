@@ -1,4 +1,5 @@
-import { loginMutation } from '../auth/login'
+import { simpleLoginMutation } from '../auth/simpleLogin'
+import { googleLoginMutation } from '../auth/googleLogin'
 import {
   CreateCenterInput,
   createCenterMutation,
@@ -7,12 +8,17 @@ import {
   CreateDonatorInput,
   createDonatorMutation,
 } from '../entitites/donators/createDonator'
-import { AuthLogin } from '../interfaces/auth.interface'
+import { AuthLogin, GoogleAuthData } from '../interfaces/auth.interface'
 
 class AuthService {
-  static async login({ data }: AuthLogin) {
-    return await loginMutation({ data })
+  static async simpleLogin({ data }: AuthLogin) {
+    return await simpleLoginMutation({ data })
   }
+
+  static async googleLogin({ data }: GoogleAuthData) {
+    return await googleLoginMutation({ data })
+  }
+
   static async donatorSignup({ data }: CreateDonatorInput) {
     return await createDonatorMutation({ data })
   }

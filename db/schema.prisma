@@ -27,7 +27,7 @@ model User {
   id                     String   @id @default(uuid())
   name                   String
   email                  String   @unique
-  hashedPassword         String
+  hashedPassword         String?
   email_validate         Boolean  @default(false)
   rol                    UserType
   onboardingStepPosition Int      @default(0)
