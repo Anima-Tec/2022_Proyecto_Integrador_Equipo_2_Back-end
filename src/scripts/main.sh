@@ -1,15 +1,21 @@
 #!/bin/bash
 
-# Creación de un Shell script desarrollado en forma modular,
-# que permita ABM de usuarios y grupos del sistema.
-
 main() {
-    chmod +x ./users/create_user.sh
-    chmod +x ./users/update_user.sh
-    chmod +x ./users/delete_user.sh
-    chmod +x ./groups/create_group.sh
-    chmod +x ./groups/delete_group.sh
-    chmod +x ./system/data.sh
+    if [ $(id -u) -ne 0 ]; then
+        echo "NECESITAS PERMISOS ROOT"
+        sleep 2
+        exit
+    fi
+
+    # chmod +x ./users/createUser.sh
+    # chmod +x ./users/dataUser.sh
+    # chmod +x ./users/deleteUser.sh
+    # chmod +x ./users/updateUser.sh
+    # chmod +x ./users/usersList.sh
+    # chmod +x ./groups/createGroup.sh
+    # chmod +x ./groups/deleteGroup.sh
+    # chmod +x ./groups/manageGroups.sh
+    # chmod +x ./system/data.sh
 
     menu
 }
@@ -17,30 +23,34 @@ main() {
 menu() {
     while :; do
         clear
-        echo "1) - Crear usuario"
-        echo "2) - Modificar usuario"
-        echo "3) - Eliminar usuario"
-        echo "4) - Crear grupo"
-        echo "5) - Eliminar grupo"
-        echo "6) - Informacion del sistema"
+
+        echo -e "--------------- Menu Principal ----------------\n"
+        echo -e "1) - Crear usuario\n"
+        echo -e "2) - Modificar usuario\n"
+        echo -e "3) - Eliminar usuario\n"
+        echo -e "4) - Crear grupo\n"
+        echo -e "5) - Eliminar grupo\n"
+        echo -e "6) - Informacion del sistema\n"
         echo -e "7) - Salir\n"
-        read -p "Seleccione una opcion: " option
+        echo -e "----------------------------------------------\n"
+
+        read -p "> Seleccione una opcion: " option
 
         case $option in
         1)
-            bash ./users/create_user.sh
+            bash ./users/createUser.sh
             ;;
         2)
-            bash ./users/update_user.sh
+            bash ./users/updateUser.sh
             ;;
         3)
-            bash ./users/delete_user.sh
+            bash ./users/deleteUser.sh
             ;;
         4)
-            bash ./groups/create_group.sh
+            bash ./groups/createGroup.sh
             ;;
         5)
-            bash ./groups/delete_group.sh
+            bash ./groups/deleteGroup.sh
             ;;
         6)
             bash ./system/data.sh
@@ -57,3 +67,5 @@ menu() {
         esac
     done
 }
+
+main

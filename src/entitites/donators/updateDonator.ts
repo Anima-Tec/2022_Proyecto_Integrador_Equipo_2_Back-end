@@ -11,6 +11,15 @@ const updateDonatorMutation = async ({ data, where }: UpdateDonatorInput) => {
 
   if (!isExist) throw 'Donador no encontrado'
 
+  const users = await db.user.findMany()
+
+  const existUserWithSameEmail = users.find(
+    user => user.email === data.email && user.id !== where.id,
+  )
+
+  if (existUserWithSameEmail)
+    throw 'Ya existe una usuario con el mismo correo, por favor ingrese otro'
+
   const donator = await db.user.update({
     where,
     data: {

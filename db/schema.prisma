@@ -28,8 +28,9 @@ model User {
   name                   String
   email                  String   @unique
   hashedPassword         String?
+  email_validate         Boolean  @default(false)
   rol                    UserType
-  onboardingStepPosition Int      @default(1)
+  onboardingStepPosition Int      @default(0)
   donator                Donator?
   center                 Center?
 }
@@ -45,13 +46,27 @@ model Center {
   phone                    String
   numberVolunteersRequired Int?        @default(0)
   street                   String
-  zone                     String
   numberDoor               String
-  departament              String
   description              String?     @default("")
   photo                    String?     @db.LongText
-  user                     User        @relation(fields: [id], references: [id])
+  zoneId                   String
+  user                     User        @relation(fields: [id], references: [id], onDelete: Cascade)
+  zone                     Zone        @relation(fields: [zoneId], references: [id], onDelete: Cascade)
   foods                    NeedsFood[]
+}
+
+model Department {
+  id    String @id @default(uuid())
+  name  String @unique
+  zones Zone[]
+}
+
+model Zone {
+  id           String     @id @default(uuid())
+  name         String
+  departmentId String
+  department   Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  centers      Center[]
 }
 
 model Food {
@@ -66,8 +81,8 @@ model NeedsFood {
   centerId        String
   amount          Int
   unitMeasurement UnitMeasurementType
-  food            Food                @relation(fields: [foodId], references: [id])
-  center          Center              @relation(fields: [centerId], references: [id])
+  food            Food                @relation(fields: [foodId], references: [id], onDelete: Cascade)
+  center          Center              @relation(fields: [centerId], references: [id], onDelete: Cascade)
 
   @@id([foodId, centerId])
 }

@@ -1,4 +1,238 @@
-const donators = [
+export const departments = [
+  {
+    name: 'Montevideo',
+    zones: [
+      'Barrio Artigas',
+      'Belvedere',
+      'Cabaña Anaya',
+      'Camino El Tapir',
+      'Casabó',
+      'Ciudad Vieja',
+      'Cordón',
+    ],
+  },
+  {
+    name: 'Canelones',
+    zones: [
+      'Aguas Corrientes',
+      'Atlántida',
+      'Barrios Blancos',
+      'Ciudad de la Costa',
+      'La Floresta',
+      'Las Piedras',
+      'Toledo',
+    ],
+  },
+  {
+    name: 'Maldonado',
+    zones: [
+      'Punta del este',
+      'Piriápolis',
+      'San carlos',
+      'Pan de azúcar',
+      'Garzon',
+      'Aiguá',
+      'Solis grande',
+    ],
+  },
+  {
+    name: 'San José',
+    zones: [
+      'Barrio Lahmann',
+      'Barrio Rohrmoser',
+      'Barrio Amón',
+      'Barrio Escalante',
+      'Barrio Don Bosco',
+      'Barrio México',
+    ],
+  },
+  {
+    name: 'Artigas',
+    zones: [
+      'Aceguá',
+      'Arbolito',
+      'Arévalo',
+      'Bañado de Medina',
+      'Centurión',
+      'Cerro de las Cuentas',
+      'Fraile Muerto',
+    ],
+  },
+  {
+    name: 'Colonia',
+    zones: [
+      'Real de san carlos',
+      'Colonia del sacramento',
+      'Piedra de los indios',
+      'Paso de la horqueta',
+      'Minas de marancio',
+      'La estanzuela',
+      'Ombúes de lavalle',
+    ],
+  },
+  {
+    name: 'Salto',
+    zones: [
+      'San antonio',
+      'Guaviyu',
+      'Salto grande',
+      'Colonia Lavalleja',
+      'Constitucion',
+      'Laureles',
+      'Pueblo fernandez',
+    ],
+  },
+  {
+    name: 'Soriano',
+    zones: [
+      'Cardona',
+      'Palmitas',
+      'José Enrique Rodó',
+      'Dolores',
+      'Mercedes',
+      'Palmitas',
+      'Chacra de dolores',
+    ],
+  },
+  {
+    name: 'Florida',
+    zones: [
+      'Piedra alta',
+      'Corralón del tigre y Santa Hania',
+      'San fernando',
+      'Villa maria',
+      'La calera',
+      'San cono',
+      'Burastero',
+    ],
+  },
+  {
+    name: 'Flores',
+    zones: [
+      'Trinidad',
+      'Ismael Cortinas',
+      'Andresito',
+      'La casilla',
+      'Juan jose castro',
+      'Cerro colorado',
+      'Área rural',
+    ],
+  },
+  {
+    name: 'Rivera',
+    zones: [
+      'Vichadero',
+      'Tranqueros',
+      'Minas de corrales',
+      'Cerro Marconi',
+      'Misiones-Siñeriz',
+      'Cerro Caqueiro',
+      'Magisterial',
+    ],
+  },
+  {
+    name: 'Lavalleja',
+    zones: [
+      'José batlle y Ordoñez',
+      'Mariscala',
+      'José Pedro Varela',
+      'Solis de mataojo',
+      'Minas',
+      'Pirarajá',
+      'Zapicán',
+    ],
+  },
+  {
+    name: 'Rocha',
+    zones: [
+      'Valizas',
+      'La pedrera',
+      'Lascano',
+      'Chuy',
+      'La paloma',
+      'Cebollatí',
+      'La coronilla',
+    ],
+  },
+  {
+    name: 'Durazno',
+    zones: [
+      'Sarandí del yí',
+      'La paloma',
+      'Carmen',
+      'Centenario',
+      'Santa Bernardina',
+      'Blanquillo',
+      'Durazno',
+    ],
+  },
+  {
+    name: 'Tacuarembó',
+    zones: [
+      'Ansina',
+      'Paso de los toros',
+      'San gregorio de polanco',
+      'Las toscas',
+      'Tambores',
+      'Curtina',
+      'Punta de carretera',
+      'Paso bonilla',
+    ],
+  },
+
+  {
+    name: 'Rio negro',
+    zones: [
+      'Fray bentos',
+      'Young',
+      'Nuevo Berlín',
+      'San javier',
+      'Algorta',
+      'Barrio anglo',
+      'Grecco',
+    ],
+  },
+
+  {
+    name: 'Paysandú',
+    zones: [
+      'Chapicuy',
+      'Guichón',
+      'Lorenzo geyres',
+      'Quebracho',
+      'Piedras coloradas',
+      'Tambores',
+      'Porvenir',
+    ],
+  },
+
+  {
+    name: 'Cerro largo',
+    zones: [
+      'Acegúa',
+      'Arévalo',
+      'Melo',
+      'Fraile muerto',
+      'Rio branco',
+      'Tupambae',
+      'Isidoro noblia',
+    ],
+  },
+  {
+    name: 'Treinta y tres',
+    zones: [
+      'Cerro chato',
+      'Treinta y tres',
+      'Vergara',
+      'Villa sara',
+      'General enrique martinez',
+      'Rincon',
+      'Santa clara de olimar',
+    ],
+  },
+]
+
+export const donators = [
   {
     name: 'Michael',
     lastName: 'Flores',
@@ -31,7 +265,7 @@ const donators = [
   },
 ]
 
-const centers = [
+export const centers = [
   {
     name: 'Chakarita fubol clu',
     email: 'chakarita@center.com',
@@ -142,5 +376,3 @@ const centers = [
     ],
   },
 ]
-
-export { donators, centers }

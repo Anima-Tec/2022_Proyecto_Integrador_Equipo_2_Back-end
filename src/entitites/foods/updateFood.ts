@@ -17,7 +17,7 @@ const updateFoodMutation = async ({ where, data }: UpdateFoodInput) => {
   const food = await db.needsFood.update({
     where,
     data: {
-      amount: data.amount,
+      amount: Number(data.amount),
       unitMeasurement: data.unitMeasurement,
       food: {
         update: {
