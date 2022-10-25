@@ -24,7 +24,7 @@ const updateCenterMutation = async ({
       center: {
         update: {
           phone: data.phone,
-          numberVolunteersRequired: data.numberVolunteersRequired ?? 0,
+          numberVolunteersRequired: Number(data.numberVolunteersRequired) ?? 0,
           street: data.street,
           numberDoor: data.numberDoor,
           zoneId: data.zoneId,

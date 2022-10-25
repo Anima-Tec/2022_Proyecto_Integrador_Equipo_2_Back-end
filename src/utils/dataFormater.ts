@@ -17,11 +17,18 @@ export interface FoodPrisma {
   unitMeasurement: UnitMeasurementType
 }
 
+// TODO: Refactor this using serializers
 const dataFormater = (data: any) => {
   if (data) {
     const formattedObject = {}
 
     Object.entries(data).forEach(([key, value]: any) => {
+      if (key.toLowerCase() !== 'hashedPassword'.toLowerCase()) {
+        Object.assign(formattedObject, {
+          [key]: value,
+        })
+      }
+
       if (key === 'user') {
         const { id, hashedPassword, ...dataWithoutIdAndPassword }: User = value
         Object.assign(formattedObject, { ...dataWithoutIdAndPassword })
@@ -35,12 +42,6 @@ const dataFormater = (data: any) => {
           }),
         )
         Object.assign(formattedObject, { foods })
-      }
-
-      if (key.toLowerCase() !== 'hashedPassword'.toLowerCase()) {
-        Object.assign(formattedObject, {
-          [key]: value,
-        })
       }
 
       if (key === 'zone') {

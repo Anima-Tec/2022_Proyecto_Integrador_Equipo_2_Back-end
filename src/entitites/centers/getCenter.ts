@@ -16,10 +16,8 @@ const getCenterQuery = async ({ where }: GetCenterInput) => {
         },
       },
       foods: {
-        select: {
+        include: {
           food: true,
-          amount: true,
-          unitMeasurement: true,
         },
       },
     },

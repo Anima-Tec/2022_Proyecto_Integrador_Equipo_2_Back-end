@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import { DonatorService } from '../services/entities_services/donators.services'
+import { hashPassword } from '../utils/hashPassword'
 
 class DonatorController {
   static async getDonator(req: Request, res: Response) {
@@ -24,7 +25,12 @@ class DonatorController {
   static async updateDonator(req: Request, res: Response) {
     try {
       const donator = await DonatorService.updateDonator({
-        data: req.body,
+        data: {
+          ...req.body,
+          hashedPassword: req.body.password
+            ? await hashPassword(req.body.password)
+            : undefined,
+        },
         where: { id: req.params.id },
       })
 
