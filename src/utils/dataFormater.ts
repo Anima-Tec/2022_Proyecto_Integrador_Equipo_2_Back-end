@@ -25,7 +25,9 @@ const dataFormater = (data: any) => {
       if (key === 'user') {
         const { id, hashedPassword, ...dataWithoutIdAndPassword }: User = value
         Object.assign(formattedObject, { ...dataWithoutIdAndPassword })
-      } else if (key === 'foods' && value.length) {
+      }
+
+      if (key === 'foods' && value.length) {
         const foods = value.map(
           ({ food: { ...dataFood }, ...restData }: FoodPrisma) => ({
             ...dataFood,
@@ -33,12 +35,22 @@ const dataFormater = (data: any) => {
           }),
         )
         Object.assign(formattedObject, { foods })
-      } else {
-        if (key.toLowerCase() !== 'hashedPassword'.toLowerCase()) {
-          Object.assign(formattedObject, {
-            [key]: value,
-          })
-        }
+      }
+
+      if (key.toLowerCase() !== 'hashedPassword'.toLowerCase()) {
+        Object.assign(formattedObject, {
+          [key]: value,
+        })
+      }
+
+      if (key === 'zone') {
+        const { department, ...zone } = value
+        Object.assign(formattedObject, {
+          [key]: zone,
+        })
+        Object.assign(formattedObject, {
+          department,
+        })
       }
     })
 
