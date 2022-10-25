@@ -12,8 +12,6 @@ export type UpdateFoodInput = Pick<
 const updateFoodMutation = async ({ where, data }: UpdateFoodInput) => {
   const isExist = await db.needsFood.findUnique({ where })
 
-  console.log(data)
-
   if (!isExist) throw 'Alimento no encontrado'
 
   const food = await db.needsFood.update({
