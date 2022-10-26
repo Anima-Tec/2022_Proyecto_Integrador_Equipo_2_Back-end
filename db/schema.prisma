@@ -72,7 +72,6 @@ model Zone {
 model Food {
   id        String      @id @default(uuid())
   name      String
-  category  String
   needsFood NeedsFood[]
 }
 
