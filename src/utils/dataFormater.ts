@@ -9,7 +9,6 @@ export interface FoodPrisma {
   food: {
     id: string
     name: string
-    category: string
   }
   foodId?: string
   centerId?: string
