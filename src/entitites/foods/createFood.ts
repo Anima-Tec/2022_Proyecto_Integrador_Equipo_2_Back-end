@@ -19,35 +19,24 @@ const createFoodMutation = async ({ data, where }: CreateFoodInput) => {
 
   if (foodIsExist) throw `Ya exisite el alimento ${data.name}`
 
-  const center = await db.center.update({
-    where,
+  const food = await db.food.create({
     data: {
-      foods: {
+      name: data.name,
+      needsFood: {
         create: {
           amount: Number(data.amount),
           unitMeasurement: data.unitMeasurement,
-          food: {
-            create: {
-              name: data.name,
-              category: data.category ?? '',
+          center: {
+            connect: {
+              id: where.id,
             },
           },
         },
       },
     },
-    select: {
-      foods: {
-        select: {
-          centerId: true,
-          food: true,
-          amount: true,
-          unitMeasurement: true,
-        },
-      },
-    },
   })
 
-  return dataFormater(center)
+  return dataFormater(food)
 }
 
 export { createFoodMutation }

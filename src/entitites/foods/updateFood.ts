@@ -19,12 +19,6 @@ const updateFoodMutation = async ({ where, data }: UpdateFoodInput) => {
     data: {
       amount: Number(data.amount),
       unitMeasurement: data.unitMeasurement,
-      food: {
-        update: {
-          name: data.name,
-          category: data.category,
-        },
-      },
     },
   })
 
