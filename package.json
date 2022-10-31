@@ -7,7 +7,7 @@
     "mail": "nodemon src/services/mail_service/mail_service.ts",
     "tsc": "tsc",
     "build": "tsc",
-    "start": "node build/src/config/index.ts",
+    "start": "node build/src/config/index.js",
     "dev": "nodemon --require pretty-error/start src/config/index.ts",
     "lint": "eslint src/**/*.ts && tsc --noemit",
     "format": "eslint src/**/*.ts --fix && prettier --write .",
