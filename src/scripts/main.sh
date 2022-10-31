@@ -7,16 +7,6 @@ main() {
         exit
     fi
 
-    # chmod +x ./users/createUser.sh
-    # chmod +x ./users/dataUser.sh
-    # chmod +x ./users/deleteUser.sh
-    # chmod +x ./users/updateUser.sh
-    # chmod +x ./users/usersList.sh
-    # chmod +x ./groups/createGroup.sh
-    # chmod +x ./groups/deleteGroup.sh
-    # chmod +x ./groups/manageGroups.sh
-    # chmod +x ./system/data.sh
-
     menu
 }
 
@@ -38,22 +28,22 @@ menu() {
 
         case $option in
         1)
-            bash ./users/createUser.sh
+            bash /project/2022_Proyecto_Integrador_Equipo_2_Back-end/src/scripts/users/createUser.sh
             ;;
         2)
-            bash ./users/updateUser.sh
+            bash /project/2022_Proyecto_Integrador_Equipo_2_Back-end/src/scripts/users/updateUser.sh
             ;;
         3)
-            bash ./users/deleteUser.sh
+            bash /project/2022_Proyecto_Integrador_Equipo_2_Back-end/src/scripts/users/deleteUser.sh
             ;;
         4)
-            bash ./groups/createGroup.sh
+            bash /project/2022_Proyecto_Integrador_Equipo_2_Back-end/src/scripts/groups/createGroup.sh
             ;;
         5)
-            bash ./groups/deleteGroup.sh
+            bash /project/2022_Proyecto_Integrador_Equipo_2_Back-end/src/scripts/groups/deleteGroup.sh
             ;;
         6)
-            bash ./system/data.sh
+            bash /project/2022_Proyecto_Integrador_Equipo_2_Back-end/src/scripts/system/data.sh
             ;;
         7)
             clear
