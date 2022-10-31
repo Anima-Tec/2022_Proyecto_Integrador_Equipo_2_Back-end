@@ -8,7 +8,7 @@ deleteUser() {
         break
     fi
 
-    source ./users/usersList.sh
+    source /project/2022_Proyecto_Integrador_Equipo_2_Back-end/src/scripts/users/usersList.sh
     usersList
 
     read -p $'\n'"Ingresa el nombre del usuario a borrar : " username

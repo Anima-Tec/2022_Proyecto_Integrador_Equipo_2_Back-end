@@ -34,7 +34,7 @@ menu() {
         optionNumber=$([[ ${#groups} -eq 0 ]] && echo "2" || echo "3")
 
         echo -e "-------------------- Usuario --------------------\n"
-        source ./users/dataUser.sh
+        source /project/2022_Proyecto_Integrador_Equipo_2_Back-end/src/scripts/users/dataUser.sh
         dataUser "$user" "showMoreData"
         echo -e "\n-------------------------------------------------\n"
 
@@ -58,7 +58,7 @@ menu() {
         1)
             echo -e "---------------- Agregar grupo ----------------\n"
             read -p "> Ingrese el nombre del grupo: " newGroup
-            source ./groups/manageGroups.sh
+            source /project/2022_Proyecto_Integrador_Equipo_2_Back-end/src/scripts/groups/manageGroups.sh
             manageGroups $newGroup "add"
             sleep 2
             ;;
@@ -66,7 +66,7 @@ menu() {
             if [ "$optionNumber" -eq 3 ]; then
                 echo -e "---------------- Remover grupo ----------------\n"
                 read -p "> Ingrese el nombre del grupo: " removeGroup
-                source ./groups/manageGroups.sh
+                source /project/2022_Proyecto_Integrador_Equipo_2_Back-end/src/scripts/groups/manageGroups.sh
                 manageGroups $removeGroup "remove"
             else
                 manageRootPrivileges "$user" "$isRoot"
@@ -120,7 +120,7 @@ main() {
         exit
     fi
 
-    source ./users/usersList.sh
+    source /project/2022_Proyecto_Integrador_Equipo_2_Back-end/src/scripts/users/usersList.sh
     usersList
 
     read -p $'\n'"> Ingresa el nombre del usuario: " tecUserName
