@@ -7,15 +7,15 @@
 
 */
 -- DropForeignKey
-ALTER TABLE `center` DROP FOREIGN KEY `Center_id_fkey`;
+ALTER TABLE `Center` DROP FOREIGN KEY `Center_id_fkey`;
 
 -- AlterTable
-ALTER TABLE `center` DROP COLUMN `departament`,
+ALTER TABLE `Center` DROP COLUMN `departament`,
     DROP COLUMN `zone`,
     ADD COLUMN `zoneId` VARCHAR(191) NOT NULL;
 
 -- AlterTable
-ALTER TABLE `user` ADD COLUMN `email_validate` BOOLEAN NOT NULL DEFAULT false;
+ALTER TABLE `User` ADD COLUMN `email_validate` BOOLEAN NOT NULL DEFAULT false;
 
 -- CreateTable
 CREATE TABLE `Department` (
