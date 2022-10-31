@@ -6,7 +6,7 @@ clear
 
 TODAY=$(date "+%d-%b-%Y-%H:%M:%S")
 DB_BACKUP_PATH=~/DB_backup
-MYSQL_HOST=127.0.0.1
+MYSQL_HOST=10.1.0.212
 MYSQL_USER=cronBackup
 MYSQL_PASSWORD=ljkdsaldas1
 DATABASE_NAME=alidar
