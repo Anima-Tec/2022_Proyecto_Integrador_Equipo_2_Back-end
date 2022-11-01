@@ -41,3 +41,34 @@ For the `SECRET_TOKEN` environment, you can enter anything but we recommend that
 ```
 require('crypto').randomBytes(64).toString('hex')
 ```
+
+## Deploy to Production
+
+1 - Join to server
+```
+ssh -p 2387 <USER_NAME>@10.1.0.12
+```
+2 - Pull project
+```
+cd /project
+
+cd /2022_Proyecto_Integrador_Equipo_2_Back-end
+git pull origin main
+```
+3 - Generate build
+```
+cd /project
+
+cd /2022_Proyecto_Integrador_Equipo_2_Back-end
+npm run build
+```
+
+4 - Run projects - PM2
+
+To run both project we used a [PM2](https://pm2.keymetrics.io/)
+```
+cd /project
+
+cd /2022_Proyecto_Integrador_Equipo_2_Back-end
+pm2 start "npm start" --name "alidar-backend"
+```
