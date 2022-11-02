@@ -53,6 +53,7 @@ model Center {
   user                     User        @relation(fields: [id], references: [id], onDelete: Cascade)
   zone                     Zone        @relation(fields: [zoneId], references: [id], onDelete: Cascade)
   foods                    NeedsFood[]
+  statistics               Statistic[]
 }
 
 model Department {
@@ -70,9 +71,10 @@ model Zone {
 }
 
 model Food {
-  id        String      @id @default(uuid())
-  name      String
-  needsFood NeedsFood[]
+  id         String      @id @default(uuid())
+  name       String
+  needsFood  NeedsFood[]
+  statistics Statistic[]
 }
 
 model NeedsFood {
@@ -84,4 +86,13 @@ model NeedsFood {
   center          Center              @relation(fields: [centerId], references: [id], onDelete: Cascade)
 
   @@id([foodId, centerId])
+}
+
+model Statistic {
+  id       String   @id @default(uuid())
+  foodId   String
+  centerId String
+  date     DateTime @default(now())
+  food     Food     @relation(fields: [foodId], references: [id])
+  center   Center   @relation(fields: [centerId], references: [id])
 }

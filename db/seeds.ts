@@ -83,18 +83,21 @@ async function seed() {
 
     if (center.foods?.length) {
       center.foods.forEach(async ({ name, amount, unitMeasurement }) => {
-        await db.center.update({
-          where: {
-            id: centerCreated.id,
-          },
+        await db.food.create({
           data: {
-            foods: {
+            name,
+            needsFood: {
               create: {
+                centerId: centerCreated.id,
                 amount,
                 unitMeasurement: unitMeasurement as UnitMeasurementType,
-                food: {
-                  create: {
-                    name,
+              },
+            },
+            statistics: {
+              create: {
+                center: {
+                  connect: {
+                    id: centerCreated.id,
                   },
                 },
               },
