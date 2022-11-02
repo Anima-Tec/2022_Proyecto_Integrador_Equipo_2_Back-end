@@ -33,6 +33,15 @@ const createFoodMutation = async ({ data, where }: CreateFoodInput) => {
           },
         },
       },
+      statistics: {
+        create: {
+          center: {
+            connect: {
+              id: where.id,
+            },
+          },
+        },
+      },
     },
   })
 
